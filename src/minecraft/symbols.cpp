@@ -1,5 +1,5 @@
 // This file was automatically generated using tools/process_headers.py
-// Generated on Fri Dec 07 2018 14:15:44 UTC
+// Generated on Sat Dec 08 2018 17:13:58 UTC
 
 #include <hybris/dlfcn.h>
 #include <log.h>
@@ -156,6 +156,14 @@ std::shared_ptr<xbox::services::system::user_auth_android> xbox::services::syste
 static void (xbox::services::system::user_auth_android::*_xbox_services_system_user_auth_android_complete_sign_in_with_ui)(xbox::services::system::auth_flow_result const &);
 void xbox::services::system::user_auth_android::complete_sign_in_with_ui(xbox::services::system::auth_flow_result const & p1) {
     (this->*_xbox_services_system_user_auth_android_complete_sign_in_with_ui)(p1);
+}
+static std::shared_ptr<xbox::services::system::xbox_live_services_settings> (*_xbox_services_system_xbox_live_services_settings_get_singleton_instance)(bool);
+std::shared_ptr<xbox::services::system::xbox_live_services_settings> xbox::services::system::xbox_live_services_settings::get_singleton_instance(bool p1) {
+    return _xbox_services_system_xbox_live_services_settings_get_singleton_instance(p1);
+}
+static void (xbox::services::system::xbox_live_services_settings::*_xbox_services_system_xbox_live_services_settings_set_diagnostics_trace_level)(int);
+void xbox::services::system::xbox_live_services_settings::set_diagnostics_trace_level(int p1) {
+    (this->*_xbox_services_system_xbox_live_services_settings_set_diagnostics_trace_level)(p1);
 }
 
 #include "ServerInstance.h"
@@ -714,6 +722,8 @@ void Legacy::Pre_1_2_10::AppPlatform::showKeyboard(mcpe::string const & p1, int 
 }
 
 static int resolve_vtable_func(void** vtable, void* what) {
+    if (vtable - 2 == nullptr)
+        return -1;
     for (int i = 0; ; i++) {
         if (vtable[i] == nullptr)
             return -1;
@@ -797,6 +807,10 @@ void minecraft_symbols_init(void* handle) {
     if (_xbox_services_system_user_auth_android_get_instance == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZN4xbox8services6system17user_auth_android12get_instanceEv");
     ((void*&) _xbox_services_system_user_auth_android_complete_sign_in_with_ui) = hybris_dlsym(handle, "_ZN4xbox8services6system17user_auth_android24complete_sign_in_with_uiERKNS1_16auth_flow_resultE");
     if (_xbox_services_system_user_auth_android_complete_sign_in_with_ui == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZN4xbox8services6system17user_auth_android24complete_sign_in_with_uiERKNS1_16auth_flow_resultE");
+    ((void*&) _xbox_services_system_xbox_live_services_settings_get_singleton_instance) = hybris_dlsym(handle, "_ZN4xbox8services6system27xbox_live_services_settings22get_singleton_instanceEb");
+    if (_xbox_services_system_xbox_live_services_settings_get_singleton_instance == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZN4xbox8services6system27xbox_live_services_settings22get_singleton_instanceEb");
+    ((void*&) _xbox_services_system_xbox_live_services_settings_set_diagnostics_trace_level) = hybris_dlsym(handle, "_ZN4xbox8services6system27xbox_live_services_settings27set_diagnostics_trace_levelENS0_37xbox_services_diagnostics_trace_levelE");
+    if (_xbox_services_system_xbox_live_services_settings_set_diagnostics_trace_level == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZN4xbox8services6system27xbox_live_services_settings27set_diagnostics_trace_levelENS0_37xbox_services_diagnostics_trace_levelE");
     ((void*&) _EducationOptions_EducationOptions) = hybris_dlsym(handle, "_ZN16EducationOptionsC2EP19ResourcePackManager");
     if (_EducationOptions_EducationOptions == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZN16EducationOptionsC2EP19ResourcePackManager");
     ((void*&) _ServerInstance_ServerInstance) = hybris_dlsym(handle, "_ZN14ServerInstanceC2ER13IMinecraftAppR9WhitelistRK14PermissionsMapP15FilePathManagerNSt6chrono8durationIxSt5ratioILx1ELx1EEEESsSsSs13LevelSettingsibiiibRKSt6vectorISsSaISsEESsRKN3mce4UUIDER18IMinecraftEventingR22ResourcePackRepositoryRK18ContentTierManagerR19ResourcePackManagerSt8functionIFSt10unique_ptrI12LevelStorageSt14default_deleteISZ_EER9SchedulerEERKSsP9LevelDataSsSsSY_I16EducationOptionsS10_IS1B_EEPSV_SX_IFvS18_EES1G_");

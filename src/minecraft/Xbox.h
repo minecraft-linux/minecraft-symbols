@@ -279,6 +279,18 @@ struct user_auth_android {
 
 };
 
+struct xbox_live_services_settings {
+
+public:
+    static std::shared_ptr<xbox::services::system::xbox_live_services_settings> get_singleton_instance(bool);
+
+    /// @symbol _ZN4xbox8services6system27xbox_live_services_settings27set_diagnostics_trace_levelENS0_37xbox_services_diagnostics_trace_levelE
+    void set_diagnostics_trace_level(int);
+
+
+
+};
+
 }
 }
 }
