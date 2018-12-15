@@ -14,6 +14,8 @@ struct MCRESULT {
     bool success;
     MCCATEGORY category;
     unsigned short code;
+
+    MCRESULT(MCRESULT const& a) : success(a.success), category(a.category), code(a.code) {}
 };
 
 class MinecraftCommands {

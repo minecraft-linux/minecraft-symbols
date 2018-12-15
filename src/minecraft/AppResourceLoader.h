@@ -1,7 +1,7 @@
 #pragma once
 
 #include "std/string.h"
-#include <functional>
+#include "std/function.h"
 
 #include "Resource.h"
 
@@ -12,6 +12,6 @@ private:
 
 public:
     /// @symbol _ZN17AppResourceLoaderC2ESt8functionIFSsvEE
-    AppResourceLoader(std::function<mcpe::string ()>);
+    AppResourceLoader(mcpe::function<mcpe::string ()>);
 
 };

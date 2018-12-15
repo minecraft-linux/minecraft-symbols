@@ -64,9 +64,9 @@ public:
     function(std::nullptr_t) : manager(nullptr) {
     }
 
-    template<typename Functor>
+    template<typename Functor, typename = std::enable_if_t<!std::is_same<Functor, function>::value>>
     function(Functor func) {
-        initFunctor(functor, std::move(func));
+        initFunctor(functor, std::forward<Functor>(func));
         manager = &managerFunc<Functor>;
         invoker = &invokerFunc<Functor>;
     }
@@ -115,11 +115,11 @@ private:
     }
 
     template <typename Functor>
-    static ReturnType initFunctor(AnyValue& functor, Functor&& val) {
+    static void initFunctor(AnyValue& functor, Functor&& val) {
         if (!isFunctorStoredLocally<Functor>())
-            functor.object = new Functor(std::move(val));
+            functor.object = new Functor(std::forward<Functor>(val));
         else
-            new(getFunctorPointer<Functor>(functor)) Functor(std::move(val));
+            new(getFunctorPointer<Functor>(functor)) Functor(std::forward<Functor>(val));
     }
 
     template <typename Functor>

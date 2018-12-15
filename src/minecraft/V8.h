@@ -12,11 +12,11 @@ struct V8 {
 };
 
 struct Task {
-    virtual ~Task() = default;
+    virtual ~Task() {}
     virtual void Run() = 0;
 };
 struct IdleTask {
-    virtual ~IdleTask() = default;
+    virtual ~IdleTask() {}
     virtual void Run(double deadline_in_seconds) = 0;
 };
 

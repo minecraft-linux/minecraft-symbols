@@ -1,7 +1,7 @@
 #pragma once
 
 #include "std/string.h"
-#include <functional>
+#include "std/function.h"
 #include <unordered_map>
 #include "Resource.h"
 #include "UUID.h"
@@ -84,7 +84,7 @@ public:
     char filler[0x100];
 
     /// @symbol _ZN19ResourcePackManagerC2ESt8functionIFSsvEERK18ContentTierManager
-    ResourcePackManager(std::function<mcpe::string ()> const&, ContentTierManager const&);
+    ResourcePackManager(mcpe::function<mcpe::string ()> const&, ContentTierManager const&);
 
     void setStack(std::unique_ptr<ResourcePackStack>, ResourcePackStackType, bool);
 
