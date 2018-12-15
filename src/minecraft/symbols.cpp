@@ -1,5 +1,5 @@
 // This file was automatically generated using tools/process_headers.py
-// Generated on Sat Dec 15 2018 14:38:57 UTC
+// Generated on Sat Dec 15 2018 17:07:21 UTC
 
 #include <hybris/dlfcn.h>
 #include <log.h>
@@ -175,8 +175,8 @@ static void (ServerInstance::*_ServerInstance_ServerInstance)(IMinecraftApp &, S
 ServerInstance::ServerInstance(IMinecraftApp & p1, ServerInstanceEventCoordinator & p2) {
     (this->*_ServerInstance_ServerInstance)(p1, p2);
 }
-static void (ServerInstance::*_ServerInstance_initializeServer)(IMinecraftApp &, Whitelist &, PermissionsFile *, FilePathManager *, std::chrono::seconds, mcpe::string, mcpe::string, mcpe::string, LevelSettings, int, bool, int, int, int, bool, std::vector<mcpe::string> const &, mcpe::string, mce::UUID const &, IMinecraftEventing &, ResourcePackRepository &, ContentTierManager const &, ResourcePackManager &, std::function<std::unique_ptr<LevelStorage> ( Scheduler & )>, mcpe::string const &, LevelData *, mcpe::string, mcpe::string, std::unique_ptr<EducationOptions>, ResourcePackManager *, std::function<void ( mcpe::string const & )>, std::function<void ( mcpe::string const & )>);
-void ServerInstance::initializeServer(IMinecraftApp & p1, Whitelist & p2, PermissionsFile * p3, FilePathManager * p4, std::chrono::seconds p5, mcpe::string p6, mcpe::string p7, mcpe::string p8, LevelSettings p9, int p10, bool p11, int p12, int p13, int p14, bool p15, std::vector<mcpe::string> const & p16, mcpe::string p17, mce::UUID const & p18, IMinecraftEventing & p19, ResourcePackRepository & p20, ContentTierManager const & p21, ResourcePackManager & p22, std::function<std::unique_ptr<LevelStorage> ( Scheduler & )> p23, mcpe::string const & p24, LevelData * p25, mcpe::string p26, mcpe::string p27, std::unique_ptr<EducationOptions> p28, ResourcePackManager * p29, std::function<void ( mcpe::string const & )> p30, std::function<void ( mcpe::string const & )> p31) {
+static void (ServerInstance::*_ServerInstance_initializeServer)(IMinecraftApp &, Whitelist &, PermissionsFile *, FilePathManager *, std::chrono::seconds, mcpe::string, mcpe::string, mcpe::string, LevelSettings, int, bool, int, int, int, bool, std::vector<mcpe::string> const &, mcpe::string, mce::UUID const &, IMinecraftEventing &, ResourcePackRepository &, ContentTierManager const &, ResourcePackManager &, mcpe::function<std::unique_ptr<LevelStorage> ( Scheduler & )>, mcpe::string const &, LevelData *, mcpe::string, mcpe::string, std::unique_ptr<EducationOptions>, ResourcePackManager *, mcpe::function<void ( mcpe::string const & )>, mcpe::function<void ( mcpe::string const & )>);
+void ServerInstance::initializeServer(IMinecraftApp & p1, Whitelist & p2, PermissionsFile * p3, FilePathManager * p4, std::chrono::seconds p5, mcpe::string p6, mcpe::string p7, mcpe::string p8, LevelSettings p9, int p10, bool p11, int p12, int p13, int p14, bool p15, std::vector<mcpe::string> const & p16, mcpe::string p17, mce::UUID const & p18, IMinecraftEventing & p19, ResourcePackRepository & p20, ContentTierManager const & p21, ResourcePackManager & p22, mcpe::function<std::unique_ptr<LevelStorage> ( Scheduler & )> p23, mcpe::string const & p24, LevelData * p25, mcpe::string p26, mcpe::string p27, std::unique_ptr<EducationOptions> p28, ResourcePackManager * p29, mcpe::function<void ( mcpe::string const & )> p30, mcpe::function<void ( mcpe::string const & )> p31) {
     (this->*_ServerInstance_initializeServer)(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24, p25, p26, p27, std::move(p28), p29, p30, p31);
 }
 static void (ServerInstance::*_ServerInstance_destructor)();
@@ -536,8 +536,8 @@ bool AppPlatform::isKeyboardVisible() {
 }
 
 #include "SaveTransactionManager.h"
-static void (SaveTransactionManager::*_SaveTransactionManager_SaveTransactionManager)(std::function<void ( bool )>);
-SaveTransactionManager::SaveTransactionManager(std::function<void ( bool )> p1) {
+static void (SaveTransactionManager::*_SaveTransactionManager_SaveTransactionManager)(mcpe::function<void ( bool )>);
+SaveTransactionManager::SaveTransactionManager(mcpe::function<void ( bool )> p1) {
     (this->*_SaveTransactionManager_SaveTransactionManager)(p1);
 }
 
@@ -548,8 +548,8 @@ int * SharedConstants::PatchVersion;
 int * SharedConstants::RevisionVersion;
 
 #include "AppResourceLoader.h"
-static void (AppResourceLoader::*_AppResourceLoader_AppResourceLoader)(std::function<mcpe::string ( )>);
-AppResourceLoader::AppResourceLoader(std::function<mcpe::string ( )> p1) {
+static void (AppResourceLoader::*_AppResourceLoader_AppResourceLoader)(mcpe::function<mcpe::string ( )>);
+AppResourceLoader::AppResourceLoader(mcpe::function<mcpe::string ( )> p1) {
     (this->*_AppResourceLoader_AppResourceLoader)(p1);
 }
 
@@ -622,8 +622,8 @@ static void (ContentTierManager::*_ContentTierManager_ContentTierManager)();
 ContentTierManager::ContentTierManager() {
     (this->*_ContentTierManager_ContentTierManager)();
 }
-static void (ResourcePackManager::*_ResourcePackManager_ResourcePackManager)(std::function<mcpe::string ( )> const &, ContentTierManager const &);
-ResourcePackManager::ResourcePackManager(std::function<mcpe::string ( )> const & p1, ContentTierManager const & p2) {
+static void (ResourcePackManager::*_ResourcePackManager_ResourcePackManager)(mcpe::function<mcpe::string ( )> const &, ContentTierManager const &);
+ResourcePackManager::ResourcePackManager(mcpe::function<mcpe::string ( )> const & p1, ContentTierManager const & p2) {
     (this->*_ResourcePackManager_ResourcePackManager)(p1, p2);
 }
 static void (ResourcePackManager::*_ResourcePackManager_setStack)(std::unique_ptr<ResourcePackStack>, ResourcePackStackType, bool);
