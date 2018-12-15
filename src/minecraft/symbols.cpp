@@ -1,5 +1,5 @@
 // This file was automatically generated using tools/process_headers.py
-// Generated on Sat Dec 15 2018 13:43:14 UTC
+// Generated on Sat Dec 15 2018 13:54:47 UTC
 
 #include <hybris/dlfcn.h>
 #include <log.h>
@@ -252,9 +252,9 @@ static void (ResourceLoadManager::*_ResourceLoadManager_ResourceLoadManager)();
 ResourceLoadManager::ResourceLoadManager() {
     (this->*_ResourceLoadManager_ResourceLoadManager)();
 }
-static void (ResourceLoadManager::*_ResourceLoadManager_setAppSuspended)(bool);
-void ResourceLoadManager::setAppSuspended(bool p1) {
-    (this->*_ResourceLoadManager_setAppSuspended)(p1);
+static void (ResourceLoadManager::*_ResourceLoadManager_sync)(ResourceLoadType);
+void ResourceLoadManager::sync(ResourceLoadType p1) {
+    (this->*_ResourceLoadManager_sync)(p1);
 }
 static mcpe::string (*_I18n_get)(mcpe::string const &, std::vector<mcpe::string> const &);
 mcpe::string I18n::get(mcpe::string const & p1, std::vector<mcpe::string> const & p2) {
@@ -861,8 +861,8 @@ void minecraft_symbols_init(void* handle) {
     if (_MinecraftCommands_requestCommandExecution == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZNK17MinecraftCommands23requestCommandExecutionESt10unique_ptrI13CommandOriginSt14default_deleteIS1_EERKSsib");
     ((void*&) _ResourceLoadManager_ResourceLoadManager) = hybris_dlsym(handle, "_ZN19ResourceLoadManagerC2Ev");
     if (_ResourceLoadManager_ResourceLoadManager == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZN19ResourceLoadManagerC2Ev");
-    ((void*&) _ResourceLoadManager_setAppSuspended) = hybris_dlsym(handle, "_ZN19ResourceLoadManager15setAppSuspendedEb");
-    if (_ResourceLoadManager_setAppSuspended == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZN19ResourceLoadManager15setAppSuspendedEb");
+    ((void*&) _ResourceLoadManager_sync) = hybris_dlsym(handle, "_ZN19ResourceLoadManager4syncE16ResourceLoadType");
+    if (_ResourceLoadManager_sync == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZN19ResourceLoadManager4syncE16ResourceLoadType");
     ((void*&) _I18n_get) = hybris_dlsym(handle, "_ZN4I18n3getERKSsRKSt6vectorISsSaISsEE");
     if (_I18n_get == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZN4I18n3getERKSsRKSt6vectorISsSaISsEE");
     ((void*&) _I18n_chooseLanguage) = hybris_dlsym(handle, "_ZN4I18n14chooseLanguageERKSs");
