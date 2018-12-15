@@ -1,5 +1,5 @@
 // This file was automatically generated using tools/process_headers.py
-// Generated on Sat Dec 15 2018 13:54:47 UTC
+// Generated on Sat Dec 15 2018 14:38:57 UTC
 
 #include <hybris/dlfcn.h>
 #include <log.h>
@@ -223,6 +223,16 @@ void GameControllerManager::feedJoinGame(int p1, bool p2) {
 static void (*_Mouse_feed)(char, char, short, short, short, short);
 void Mouse::feed(char p1, char p2, short p3, short p4, short p5, short p6) {
     _Mouse_feed(p1, p2, p3, p4, p5, p6);
+}
+
+#include "V8.h"
+static bool (*_v8_V8_Initialize)();
+bool v8::V8::Initialize() {
+    return _v8_V8_Initialize();
+}
+static void (*_v8_V8_InitializePlatform)(v8::Platform *);
+void v8::V8::InitializePlatform(v8::Platform * p1) {
+    _v8_V8_InitializePlatform(p1);
 }
 
 #include "Level.h"
@@ -851,6 +861,10 @@ void minecraft_symbols_init(void* handle) {
     if (_GameControllerManager_feedJoinGame == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZN21GameControllerManager12feedJoinGameEib");
     ((void*&) _Mouse_feed) = hybris_dlsym(handle, "_ZN5Mouse4feedEccssss");
     if (_Mouse_feed == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZN5Mouse4feedEccssss");
+    ((void*&) _v8_V8_Initialize) = hybris_dlsym(handle, "_ZN2v82V810InitializeEv");
+    if (_v8_V8_Initialize == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZN2v82V810InitializeEv");
+    ((void*&) _v8_V8_InitializePlatform) = hybris_dlsym(handle, "_ZN2v82V818InitializePlatformEPNS_8PlatformE");
+    if (_v8_V8_InitializePlatform == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZN2v82V818InitializePlatformEPNS_8PlatformE");
     ((void*&) _Level_createRandomSeed) = hybris_dlsym(handle, "_ZN5Level16createRandomSeedEv");
     if (_Level_createRandomSeed == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZN5Level16createRandomSeedEv");
     ((void*&) _Multitouch_feed) = hybris_dlsym(handle, "_ZN10Multitouch4feedEccssi");

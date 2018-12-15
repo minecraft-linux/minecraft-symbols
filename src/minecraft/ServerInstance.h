@@ -4,6 +4,7 @@
 #include <chrono>
 #include <vector>
 #include <string>
+#include <thread>
 #include "std/string.h"
 #include "std/function.h"
 #include "LevelSettings.h"
@@ -41,7 +42,7 @@ class EventResult;
 class ServerInstanceEventCoordinator {
     std::vector<ServerInstanceEventListener *> listeners;
     std::vector<mcpe::function<EventResult (ServerInstanceEventListener *)>> handlers;
-    char filler[36-28];
+    std::thread::id threadId;
 };
 
 class ServerInstance {
