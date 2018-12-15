@@ -64,7 +64,7 @@ public:
     function(std::nullptr_t) : manager(nullptr) {
     }
 
-    template<typename Functor, typename = std::enable_if_t<!std::is_same<Functor, function>::value>>
+    template<typename Functor, typename = typename std::enable_if<!std::is_same<Functor, function>::value>::type>
     function(Functor func) {
         initFunctor(functor, std::forward<Functor>(func));
         manager = &managerFunc<Functor>;
