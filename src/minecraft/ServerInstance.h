@@ -4,8 +4,8 @@
 #include <chrono>
 #include <vector>
 #include <string>
-#include <functional>
 #include "std/string.h"
+#include "std/function.h"
 #include "LevelSettings.h"
 
 class IMinecraftApp;
@@ -65,6 +65,6 @@ public:
     void leaveGameSync();
 
     /// @symbol _ZN14ServerInstance20queueForServerThreadESt8functionIFvvEE
-    void queueForServerThread(std::function<void ()>);
+    void queueForServerThread(mcpe::function<void ()>);
 
 };

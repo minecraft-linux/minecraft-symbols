@@ -1,5 +1,5 @@
 // This file was automatically generated using tools/process_headers.py
-// Generated on Sat Dec 15 2018 13:40:00 UTC
+// Generated on Sat Dec 15 2018 13:43:14 UTC
 
 #include <hybris/dlfcn.h>
 #include <log.h>
@@ -191,8 +191,8 @@ static void (ServerInstance::*_ServerInstance_leaveGameSync)();
 void ServerInstance::leaveGameSync() {
     (this->*_ServerInstance_leaveGameSync)();
 }
-static void (ServerInstance::*_ServerInstance_queueForServerThread)(std::function<void ( )>);
-void ServerInstance::queueForServerThread(std::function<void ( )> p1) {
+static void (ServerInstance::*_ServerInstance_queueForServerThread)(mcpe::function<void ( )>);
+void ServerInstance::queueForServerThread(mcpe::function<void ( )> p1) {
     (this->*_ServerInstance_queueForServerThread)(p1);
 }
 
