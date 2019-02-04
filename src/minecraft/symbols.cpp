@@ -1,5 +1,5 @@
 // This file was automatically generated using tools/process_headers.py
-// Generated on Sat Dec 15 2018 17:07:21 UTC
+// Generated on Mon Feb 04 2019 18:59:19 UTC
 
 #include <hybris/dlfcn.h>
 #include <log.h>
@@ -674,6 +674,22 @@ MinecraftCommands * Minecraft::getCommands() {
     return (this->*_Minecraft_getCommands)();
 }
 
+#include "Store.h"
+static int vti_StoreListener_onStoreInitialized;
+void StoreListener::onStoreInitialized(bool p1) {
+    union { void* voidp; void (StoreListener::*funcp)(bool); } u;
+    u.funcp = nullptr;
+    u.voidp = vtable[vti_StoreListener_onStoreInitialized];
+    (this->*u.funcp)(p1);
+}
+static int vti_StoreListener_onQueryProductsSuccess;
+void StoreListener::onQueryProductsSuccess(std::vector<ProductInfo> const & p1) {
+    union { void* voidp; void (StoreListener::*funcp)(std::vector<ProductInfo> const &); } u;
+    u.funcp = nullptr;
+    u.voidp = vtable[vti_StoreListener_onQueryProductsSuccess];
+    (this->*u.funcp)(p1);
+}
+
 #include "LevelSettings.h"
 static void (LevelSettings::*_LevelSettings_LevelSettings)();
 LevelSettings::LevelSettings() {
@@ -1064,6 +1080,11 @@ void minecraft_symbols_init(void* handle) {
     if (_ExternalFileLevelStorageSource_createLevelStorage == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZN30ExternalFileLevelStorageSource18createLevelStorageER9SchedulerRKSsRK15ContentIdentityRK19IContentKeyProvider");
     ((void*&) _Minecraft_getCommands) = hybris_dlsym(handle, "_ZN9Minecraft11getCommandsEv");
     if (_Minecraft_getCommands == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZN9Minecraft11getCommandsEv");
+    void** vt_GameStore = (void**) hybris_dlsym(handle, "_ZTV9GameStore") + 2;
+    vti_StoreListener_onStoreInitialized = resolve_vtable_func(vt_GameStore, hybris_dlsym(handle, "_ZN9GameStore18onStoreInitializedEb"));
+    if (vti_StoreListener_onStoreInitialized == -1) Log::error("MinecraftSymbols", "Unresolved vtable symbol: %s", "_ZN9GameStore18onStoreInitializedEb");
+    vti_StoreListener_onQueryProductsSuccess = resolve_vtable_func(vt_GameStore, hybris_dlsym(handle, "_ZN9GameStore22onQueryProductsSuccessERKSt6vectorI11ProductInfoSaIS1_EE"));
+    if (vti_StoreListener_onQueryProductsSuccess == -1) Log::error("MinecraftSymbols", "Unresolved vtable symbol: %s", "_ZN9GameStore22onQueryProductsSuccessERKSt6vectorI11ProductInfoSaIS1_EE");
     ((void*&) _LevelSettings_LevelSettings) = hybris_dlsym(handle, "_ZN13LevelSettingsC2Ev");
     if (_LevelSettings_LevelSettings == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZN13LevelSettingsC2Ev");
     ((void*&) _LevelSettings_LevelSettings2) = hybris_dlsym(handle, "_ZN13LevelSettingsC2ERKS_");
