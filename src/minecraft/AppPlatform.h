@@ -12,6 +12,10 @@ public:
     /// @symbol _ZN14ServiceLocatorI11AppPlatformE15mDefaultServiceE
     static AppPlatform** instance;
 
+    struct HardwareInformation {
+        mcpe::string deviceModel;
+    };
+
     void** vtable;
     char filler[0xA0 - sizeof(void**)];
     // A0
@@ -31,5 +35,7 @@ public:
     void hideKeyboard();
 
     bool isKeyboardVisible();
+
+    AppPlatform::HardwareInformation& getHardwareInformation() const;
 
 };

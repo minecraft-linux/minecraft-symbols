@@ -1,5 +1,5 @@
 // This file was automatically generated using tools/process_headers.py
-// Generated on Thu Feb 07 2019 16:23:15 UTC
+// Generated on Sat Feb 23 2019 10:56:02 UTC
 
 #include <hybris/dlfcn.h>
 #include <log.h>
@@ -534,6 +534,10 @@ static bool (AppPlatform::*_AppPlatform_isKeyboardVisible)();
 bool AppPlatform::isKeyboardVisible() {
     return (this->*_AppPlatform_isKeyboardVisible)();
 }
+static AppPlatform::HardwareInformation & (AppPlatform::*_AppPlatform_getHardwareInformation)() const;
+AppPlatform::HardwareInformation & AppPlatform::getHardwareInformation() const {
+    return (this->*_AppPlatform_getHardwareInformation)();
+}
 
 #include "SaveTransactionManager.h"
 static void (SaveTransactionManager::*_SaveTransactionManager_SaveTransactionManager)(mcpe::function<void ( bool )>);
@@ -1020,6 +1024,8 @@ void minecraft_symbols_init(void* handle) {
     if (_AppPlatform_hideKeyboard == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZN11AppPlatform12hideKeyboardEv");
     ((void*&) _AppPlatform_isKeyboardVisible) = hybris_dlsym(handle, "_ZN11AppPlatform17isKeyboardVisibleEv");
     if (_AppPlatform_isKeyboardVisible == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZN11AppPlatform17isKeyboardVisibleEv");
+    ((void*&) _AppPlatform_getHardwareInformation) = hybris_dlsym(handle, "_ZNK11AppPlatform22getHardwareInformationEv");
+    if (_AppPlatform_getHardwareInformation == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZNK11AppPlatform22getHardwareInformationEv");
     ((void*&) _SaveTransactionManager_SaveTransactionManager) = hybris_dlsym(handle, "_ZN22SaveTransactionManagerC2ESt8functionIFvbEE");
     if (_SaveTransactionManager_SaveTransactionManager == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZN22SaveTransactionManagerC2ESt8functionIFvbEE");
     ((void*&) SharedConstants::MajorVersion) = hybris_dlsym(handle, "_ZN15SharedConstants12MajorVersionE");
