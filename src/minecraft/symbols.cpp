@@ -1,5 +1,5 @@
 // This file was automatically generated using tools/process_headers.py
-// Generated on Fri Mar 22 2019 17:42:16 UTC
+// Generated on Thu Apr 18 2019 14:40:27 UTC
 
 #include <hybris/dlfcn.h>
 #include <log.h>
@@ -195,6 +195,8 @@ static void (ServerInstance::*_ServerInstance_queueForServerThread)(mcpe::functi
 void ServerInstance::queueForServerThread(mcpe::function<void ( )> p1) {
     (this->*_ServerInstance_queueForServerThread)(p1);
 }
+
+#include "Core.h"
 
 #include "GameControllerManager.h"
 GameControllerManager * GameControllerManager::sGamePadManager;
@@ -408,11 +410,9 @@ void ClientInstance::_syncDestroyGame() {
 
 #include "Keyboard.h"
 int * Keyboard::_states;
+std::vector<Keyboard::InputEvent> * Keyboard::_inputs;
+int * Keyboard::_gameControllerId;
 std::vector<int> * Keyboard::_inputCaretLocation;
-static void (*_Keyboard_feed)(unsigned char, int);
-void Keyboard::feed(unsigned char p1, int p2) {
-    _Keyboard_feed(p1, p2);
-}
 static void (*_Keyboard_feedText)(mcpe::string const &, bool, unsigned char);
 void Keyboard::feedText(mcpe::string const & p1, bool p2, unsigned char p3) {
     _Keyboard_feedText(p1, p2, p3);
@@ -967,10 +967,12 @@ void minecraft_symbols_init(void* handle) {
     if (_ClientInstance__syncDestroyGame == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZN14ClientInstance16_syncDestroyGameEv");
     ((void*&) Keyboard::_states) = hybris_dlsym(handle, "_ZN8Keyboard7_statesE");
     if (Keyboard::_states == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZN8Keyboard7_statesE");
+    ((void*&) Keyboard::_inputs) = hybris_dlsym(handle, "_ZN8Keyboard7_inputsE");
+    if (Keyboard::_inputs == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZN8Keyboard7_inputsE");
+    ((void*&) Keyboard::_gameControllerId) = hybris_dlsym(handle, "_ZN8Keyboard17_gameControllerIdE");
+    if (Keyboard::_gameControllerId == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZN8Keyboard17_gameControllerIdE");
     ((void*&) Keyboard::_inputCaretLocation) = hybris_dlsym(handle, "_ZN8Keyboard19_inputCaretLocationE");
     if (Keyboard::_inputCaretLocation == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZN8Keyboard19_inputCaretLocationE");
-    ((void*&) _Keyboard_feed) = hybris_dlsym(handle, "_ZN8Keyboard4feedEhi");
-    if (_Keyboard_feed == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZN8Keyboard4feedEhi");
     ((void*&) _Keyboard_feedText) = hybris_dlsym(handle, "_ZN8Keyboard8feedTextERKSsbh");
     if (_Keyboard_feedText == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZN8Keyboard8feedTextERKSsbh");
     ((void*&) _CommandOutput_getMessages) = hybris_dlsym(handle, "_ZNK13CommandOutput11getMessagesEv");
