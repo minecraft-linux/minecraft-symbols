@@ -96,8 +96,13 @@ public:
     shared_ptr(P ptr) : ptr(ptr), refCount(new DefaultRefCount<P>(ptr)) {
     }
 
+    shared_ptr(shared_ptr<T> const& ptr) : ptr(ptr.ptr), refCount(ptr.refCount) {
+        refCount->addRefFromCopy();
+    }
+
     ~shared_ptr() {
-        refCount->release();
+        if (refCount != nullptr)
+            refCount->release();
     }
 
     template <typename P, typename Deleter, typename Alloc = std::allocator<void>>
@@ -109,9 +114,18 @@ public:
     }
 
     void reset() {
-        refCount->release();
+        if (refCount != nullptr)
+            refCount->release();
         ptr = nullptr;
         refCount = nullptr;
+    }
+
+    T* get() const {
+        return ptr;
+    }
+
+    T* operator->() const {
+        return ptr;
     }
 
 };
