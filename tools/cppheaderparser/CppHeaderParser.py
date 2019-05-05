@@ -2015,7 +2015,7 @@ class _CppHeader( Resolver ):
             newClass['parent'] = parent
             self.classes[ parent ]['nested_classes'].append( newClass )
             ## supports nested classes with the same name ##
-            self.curClass = key = parent+'::'+newClass['name']
+            self.curClass = key = newClass["namespace"] + '::' + newClass['name']
             self._classes_brace_level[ key ] = self.braceDepth
 
         elif newClass['parent']:        # nested class defined outside of parent.  A::B {...}
@@ -2028,9 +2028,10 @@ class _CppHeader( Resolver ):
 
         else:
             newClass["namespace"] = self.cur_namespace()
-            key = newClass['name']
-            self.curClass = newClass["name"]
-            self._classes_brace_level[ newClass['name'] ] = self.braceDepth
+            self.curClass = key = newClass['name']
+            if newClass["namespace"] is not None and len(newClass["namespace"]) > 0:
+                self.curClass = key = newClass["namespace"] + '::' + newClass['name']
+            self._classes_brace_level[ key ] = self.braceDepth
 
         if not key.endswith("::") and not key.endswith(" ") and len(key) != 0:
             if key in self.classes:
