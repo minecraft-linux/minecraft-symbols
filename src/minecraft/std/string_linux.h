@@ -18,6 +18,7 @@ public:
     string(const char *str, size_t len);
     string(const string &str);
     inline string(const std::string &str) : string(str.c_str(), str.length()) {}
+    string(string&& str);
     ~string();
 
     string &operator=(const string &str);

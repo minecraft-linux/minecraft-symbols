@@ -27,6 +27,10 @@ mcpe::string::string(const string &str) {
         new (this)std::string(*((const std::string *) &str));
     }
 }
+mcpe::string::string(string&& str) {
+    ptr = str.ptr;
+    str.ptr = empty->ptr;
+}
 mcpe::string::~string() {
     if (ptr == empty->ptr)
         return;
