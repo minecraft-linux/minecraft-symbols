@@ -1,5 +1,5 @@
 // This file was automatically generated using tools/process_headers.py
-// Generated on Sun May 05 2019 18:09:43 UTC
+// Generated on Sun May 05 2019 18:19:08 UTC
 
 #include <hybris/dlfcn.h>
 #include <log.h>
@@ -835,6 +835,13 @@ static void (Legacy::Pre_1_2_10::MinecraftGame::*_Legacy_Pre_1_2_10_MinecraftGam
 void Legacy::Pre_1_2_10::MinecraftGame::setTextboxText(mcpe::string const & p1) {
     (this->*_Legacy_Pre_1_2_10_MinecraftGame_setTextboxText)(p1);
 }
+static Options * (Legacy::Pre_1_2::MinecraftGame::*_Legacy_Pre_1_2_MinecraftGame_getOptions)();
+Options * Legacy::Pre_1_2::MinecraftGame::getOptions() {
+    return (this->*_Legacy_Pre_1_2_MinecraftGame_getOptions)();
+}
+
+#include "legacy/Keyboard.h"
+std::vector<Legacy::Pre_1_2::Keyboard::InputEvent> * Legacy::Pre_1_2::Keyboard::_inputs;
 
 #include "legacy/App.h"
 static int vti_Legacy_Pre_1_8_App_quit;
@@ -1225,6 +1232,8 @@ void minecraft_symbols_init(void* handle) {
     ((void*&) Legacy::Pre_1_2::xbox::services::system::user_impl_android::s_signOutCompleteEvent) = hybris_dlsym(handle, "_ZN4xbox8services6system17user_impl_android22s_signOutCompleteEventE");
     ((void*&) _Legacy_Pre_1_2_xbox_services_system_user_impl_android_get_instance) = hybris_dlsym(handle, "_ZN4xbox8services6system17user_impl_android12get_instanceEv");
     ((void*&) _Legacy_Pre_1_2_10_MinecraftGame_setTextboxText) = hybris_dlsym(handle, "_ZN13MinecraftGame14setTextboxTextERKSs");
+    ((void*&) _Legacy_Pre_1_2_MinecraftGame_getOptions) = hybris_dlsym(handle, "_ZN13MinecraftGame10getOptionsEv");
+    ((void*&) Legacy::Pre_1_2::Keyboard::_inputs) = hybris_dlsym(handle, "_ZN8Keyboard7_inputsE");
     vti_Legacy_Pre_1_8_App_quit = resolve_vtable_func(vt_App, hybris_dlsym(handle, "_ZN3App4quitEv"));
     ((void*&) _Legacy_Pre_1_2_10_AppPlatform_showKeyboard) = hybris_dlsym(handle, "_ZN11AppPlatform12showKeyboardERKSsibbbRK4Vec2");
 }
