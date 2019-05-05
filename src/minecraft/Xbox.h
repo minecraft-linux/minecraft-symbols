@@ -102,40 +102,14 @@ struct xsapi_singleton {
 namespace system {
 
 struct java_rps_ticket {
-
     mcpe::string token;
     int error_code;
     mcpe::string error_text;
-
-    java_rps_ticket() {}
-    java_rps_ticket(java_rps_ticket const& c) {
-        token = c.token;
-        error_code = c.error_code;
-        error_text = c.error_text;
-    }
-
 };
 
 struct auth_flow_result {
-
     int code;
     mcpe::string s1, xbox_user_id, gamertag, age_group, privileges, user_settings_restrictions, user_enforcement_restrictions, user_title_restrictions, cid, event_token;
-
-    auth_flow_result() {}
-    auth_flow_result(auth_flow_result const& c) {
-        code = c.code;
-        s1 = c.s1;
-        xbox_user_id = c.xbox_user_id;
-        gamertag = c.gamertag;
-        age_group = c.age_group;
-        privileges = c.privileges;
-        user_settings_restrictions = c.user_settings_restrictions;
-        user_enforcement_restrictions = c.user_enforcement_restrictions;
-        user_title_restrictions = c.user_title_restrictions;
-        cid = c.cid;
-        event_token = c.event_token;
-    }
-
 };
 
 struct token_and_signature_result {
