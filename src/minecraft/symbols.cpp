@@ -1,5 +1,5 @@
 // This file was automatically generated using tools/process_headers.py
-// Generated on Sun May 05 2019 12:46:44 UTC
+// Generated on Sun May 05 2019 18:09:43 UTC
 
 #include <hybris/dlfcn.h>
 #include <log.h>
@@ -67,14 +67,14 @@ std::shared_ptr<xbox::services::xbox_live_app_config> xbox::services::xbox_live_
 }
 static int vti_xbox_services_local_config_get_value_from_local_storage;
 mcpe::string xbox::services::local_config::get_value_from_local_storage(mcpe::string const & p1, mcpe::string const & p2, mcpe::string const & p3) {
-    union { void* voidp; mcpe::string (xbox::services::local_config::*funcp)(mcpe::string const &, mcpe::string const &, mcpe::string const &); } u;
+    union { void* voidp; ::mcpe::string (xbox::services::local_config::*funcp)(mcpe::string const &, mcpe::string const &, mcpe::string const &); } u;
     u.funcp = nullptr;
     u.voidp = vtable[vti_xbox_services_local_config_get_value_from_local_storage];
     return (this->*u.funcp)(p1, p2, p3);
 }
 static int vti_xbox_services_local_config_write_value_to_local_storage;
 xbox::services::xbox_live_result<void> xbox::services::local_config::write_value_to_local_storage(mcpe::string const & p1, mcpe::string const & p2, mcpe::string const & p3, mcpe::string const & p4) {
-    union { void* voidp; xbox::services::xbox_live_result<void> (xbox::services::local_config::*funcp)(mcpe::string const &, mcpe::string const &, mcpe::string const &, mcpe::string const &); } u;
+    union { void* voidp; ::xbox::services::xbox_live_result<void> (xbox::services::local_config::*funcp)(mcpe::string const &, mcpe::string const &, mcpe::string const &, mcpe::string const &); } u;
     u.funcp = nullptr;
     u.voidp = vtable[vti_xbox_services_local_config_write_value_to_local_storage];
     return (this->*u.funcp)(p1, p2, p3, p4);
@@ -740,7 +740,7 @@ mcpe::string Common::getGameVersionStringNet() {
 #include "legacy/Xbox.h"
 static int vti_Legacy_Pre_1_8_xbox_services_local_config_get_value_from_local_storage;
 mcpe::string Legacy::Pre_1_8::xbox::services::local_config::get_value_from_local_storage(mcpe::string const & p1) {
-    union { void* voidp; mcpe::string (Legacy::Pre_1_8::xbox::services::local_config::*funcp)(mcpe::string const &); } u;
+    union { void* voidp; ::mcpe::string (Legacy::Pre_1_8::xbox::services::local_config::*funcp)(mcpe::string const &); } u;
     u.funcp = nullptr;
     u.voidp = vtable[vti_Legacy_Pre_1_8_xbox_services_local_config_get_value_from_local_storage];
     return (this->*u.funcp)(p1);
@@ -804,6 +804,30 @@ std::shared_ptr<::xbox::services::system::auth_config> Legacy::Pre_1_2_3::xbox::
 static std::shared_ptr<Legacy::Pre_1_2_3::xbox::services::system::user_auth_android> (*_Legacy_Pre_1_2_3_xbox_services_system_user_auth_android_get_instance)();
 std::shared_ptr<Legacy::Pre_1_2_3::xbox::services::system::user_auth_android> Legacy::Pre_1_2_3::xbox::services::system::user_auth_android::get_instance() {
     return _Legacy_Pre_1_2_3_xbox_services_system_user_auth_android_get_instance();
+}
+static int vti_Legacy_Pre_1_2_xbox_services_local_config_impl_get_value_from_local_storage;
+mcpe::string Legacy::Pre_1_2::xbox::services::local_config_impl::get_value_from_local_storage(mcpe::string const & p1) {
+    union { void* voidp; ::mcpe::string (Legacy::Pre_1_2::xbox::services::local_config_impl::*funcp)(mcpe::string const &); } u;
+    u.funcp = nullptr;
+    u.voidp = vtable[vti_Legacy_Pre_1_2_xbox_services_local_config_impl_get_value_from_local_storage];
+    return (this->*u.funcp)(p1);
+}
+static int vti_Legacy_Pre_1_2_xbox_services_local_config_impl_write_value_to_local_storage;
+xbox::services::xbox_live_result<void> Legacy::Pre_1_2::xbox::services::local_config_impl::write_value_to_local_storage(mcpe::string const & p1, mcpe::string const & p2) {
+    union { void* voidp; ::xbox::services::xbox_live_result<void> (Legacy::Pre_1_2::xbox::services::local_config_impl::*funcp)(mcpe::string const &, mcpe::string const &); } u;
+    u.funcp = nullptr;
+    u.voidp = vtable[vti_Legacy_Pre_1_2_xbox_services_local_config_impl_write_value_to_local_storage];
+    return (this->*u.funcp)(p1, p2);
+}
+static std::shared_ptr<Legacy::Pre_1_2::xbox::services::local_config_impl> (*_Legacy_Pre_1_2_xbox_services_local_config_impl_get_local_config_singleton)();
+std::shared_ptr<Legacy::Pre_1_2::xbox::services::local_config_impl> Legacy::Pre_1_2::xbox::services::local_config_impl::get_local_config_singleton() {
+    return _Legacy_Pre_1_2_xbox_services_local_config_impl_get_local_config_singleton();
+}
+pplx::task_completion_event_java_rps_ticket * Legacy::Pre_1_2::xbox::services::system::user_impl_android::s_rpsTicketCompletionEvent;
+pplx::task_completion_event_xbox_live_result_void * Legacy::Pre_1_2::xbox::services::system::user_impl_android::s_signOutCompleteEvent;
+static std::shared_ptr<Legacy::Pre_1_2::xbox::services::system::user_impl_android> (*_Legacy_Pre_1_2_xbox_services_system_user_impl_android_get_instance)();
+std::shared_ptr<Legacy::Pre_1_2::xbox::services::system::user_impl_android> Legacy::Pre_1_2::xbox::services::system::user_impl_android::get_instance() {
+    return _Legacy_Pre_1_2_xbox_services_system_user_impl_android_get_instance();
 }
 
 #include "legacy/MinecraftGame.h"
@@ -1193,6 +1217,13 @@ void minecraft_symbols_init(void* handle) {
     ((void*&) _Legacy_Pre_1_2_3_xbox_services_system_auth_manager_internal_get_token_and_signature) = hybris_dlsym(handle, "_ZN4xbox8services6system12auth_manager32internal_get_token_and_signatureESsRKSsS4_SsRKSt6vectorIhSaIhEEbbS4_");
     ((void*&) _Legacy_Pre_1_2_3_xbox_services_system_auth_manager_get_auth_config) = hybris_dlsym(handle, "_ZN4xbox8services6system12auth_manager15get_auth_configEv");
     ((void*&) _Legacy_Pre_1_2_3_xbox_services_system_user_auth_android_get_instance) = hybris_dlsym(handle, "_ZN4xbox8services6system17user_auth_android12get_instanceEv");
+    void** vt_xbox_services_local_config_impl = (void**) hybris_dlsym(handle, "_ZTVN4xbox8services17local_config_implE") + 2;
+    vti_Legacy_Pre_1_2_xbox_services_local_config_impl_get_value_from_local_storage = resolve_vtable_func(vt_xbox_services_local_config_impl, hybris_dlsym(handle, "_ZN4xbox8services17local_config_impl28get_value_from_local_storageERKSs"));
+    vti_Legacy_Pre_1_2_xbox_services_local_config_impl_write_value_to_local_storage = resolve_vtable_func(vt_xbox_services_local_config_impl, hybris_dlsym(handle, "_ZN4xbox8services17local_config_impl28write_value_to_local_storageERKSsS3_"));
+    ((void*&) _Legacy_Pre_1_2_xbox_services_local_config_impl_get_local_config_singleton) = hybris_dlsym(handle, "_ZN4xbox8services17local_config_impl26get_local_config_singletonEv");
+    ((void*&) Legacy::Pre_1_2::xbox::services::system::user_impl_android::s_rpsTicketCompletionEvent) = hybris_dlsym(handle, "_ZN4xbox8services6system17user_impl_android26s_rpsTicketCompletionEventE");
+    ((void*&) Legacy::Pre_1_2::xbox::services::system::user_impl_android::s_signOutCompleteEvent) = hybris_dlsym(handle, "_ZN4xbox8services6system17user_impl_android22s_signOutCompleteEventE");
+    ((void*&) _Legacy_Pre_1_2_xbox_services_system_user_impl_android_get_instance) = hybris_dlsym(handle, "_ZN4xbox8services6system17user_impl_android12get_instanceEv");
     ((void*&) _Legacy_Pre_1_2_10_MinecraftGame_setTextboxText) = hybris_dlsym(handle, "_ZN13MinecraftGame14setTextboxTextERKSs");
     vti_Legacy_Pre_1_8_App_quit = resolve_vtable_func(vt_App, hybris_dlsym(handle, "_ZN3App4quitEv"));
     ((void*&) _Legacy_Pre_1_2_10_AppPlatform_showKeyboard) = hybris_dlsym(handle, "_ZN11AppPlatform12showKeyboardERKSsibbbRK4Vec2");

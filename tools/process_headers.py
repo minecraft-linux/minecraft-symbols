@@ -229,6 +229,8 @@ def process_method(method, is_class, is_legacy):
     output((ret_type + " " if not method["constructor"] and not method["destructor"] else "") + method_path + "::" + ("~" if method["destructor"] else "") + method["name"] + "(" + params_with_names + ")" + (" const" if method["const"] else "") + " {")
     has_return = ret_type != "void" and ret_type != ""
     if vtable_name is not None:
+        if "::" in ret_type:
+            ret_type = "::" + ret_type
         output("    union { void* voidp; " + ret_type + " (" + method_path + "::*funcp)(" + params_str + "); } u;")
         output("    u.funcp = nullptr;")
         output("    u.voidp = vtable[vti" + wrapper_name + "];")

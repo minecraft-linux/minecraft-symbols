@@ -137,4 +137,53 @@ struct user_auth_android {
 
 }
 
+namespace Pre_1_2 {
+
+namespace xbox {
+namespace services {
+
+struct local_config_impl {
+
+    void** vtable;
+
+    /// @vtable xbox::services::local_config_impl _ZN4xbox8services17local_config_impl28get_value_from_local_storageERKSs
+    mcpe::string get_value_from_local_storage(mcpe::string const& value);
+
+    /// @vtable xbox::services::local_config_impl _ZN4xbox8services17local_config_impl28write_value_to_local_storageERKSsS3_
+    ::xbox::services::xbox_live_result<void> write_value_to_local_storage(mcpe::string const& name, mcpe::string const& value);
+
+    /// @symbol _ZN4xbox8services17local_config_impl26get_local_config_singletonEv
+    static std::shared_ptr<Legacy::Pre_1_2::xbox::services::local_config_impl> get_local_config_singleton();
+
+};
+
+namespace system {
+
+struct user_impl_android {
+
+    /// @symbol _ZN4xbox8services6system17user_impl_android12get_instanceEv
+    static std::shared_ptr<Legacy::Pre_1_2::xbox::services::system::user_impl_android> get_instance();
+
+    /// @symbol _ZN4xbox8services6system17user_impl_android26s_rpsTicketCompletionEventE
+    static pplx::task_completion_event_java_rps_ticket* s_rpsTicketCompletionEvent;
+    /// @symbol _ZN4xbox8services6system17user_impl_android22s_signOutCompleteEventE
+    static pplx::task_completion_event_xbox_live_result_void* s_signOutCompleteEvent;
+
+    char filler2[0x24]; // 24
+    mcpe::string cid; // 28
+    char filler3[0x60-0x28];
+    Pre_1_2_3::pplx::task_completion_event_auth_flow_result auth_flow_event;
+    char filler4[0x94-0x60-0xc];
+    Pre_1_2_3::xbox::services::system::auth_flow_result auth_flow_result;
+
+
+};
+
+}
+
+}
+}
+
+}
+
 }
