@@ -26,6 +26,34 @@ struct local_config {
 
 }
 
+namespace Pre_1_4 {
+
+namespace xbox {
+namespace services {
+namespace system {
+struct auth_manager {
+
+    /// @symbol _ZN4xbox8services6system12auth_manager25get_auth_manager_instanceEv
+    static std::shared_ptr<Legacy::Pre_1_4::xbox::services::system::auth_manager> get_auth_manager_instance();
+
+    /// @symbol _ZN4xbox8services6system12auth_manager14set_rps_ticketERKSs
+    void set_rps_ticket(mcpe::string const&);
+    /// @symbol _ZN4xbox8services6system12auth_manager23initialize_default_nsalEv
+    ::pplx::task_xbox_live_result_void initialize_default_nsal();
+    /// @symbol _ZN4xbox8services6system12auth_manager21initialize_title_nsalERKSs
+    ::pplx::task_xbox_live_result_void initialize_title_nsal(mcpe::string const&);
+    /// @symbol _ZN4xbox8services6system12auth_manager32internal_get_token_and_signatureESsRKSsS4_SsRKSt6vectorIhSaIhEEbbS4_
+    ::pplx::task_xbox_live_result_token_and_signature_result internal_get_token_and_signature(mcpe::string, mcpe::string const&, mcpe::string const&, mcpe::string, std::vector<unsigned char> const&, bool, bool, mcpe::string const&);
+    /// @symbol _ZN4xbox8services6system12auth_manager15get_auth_configEv
+    std::shared_ptr<::xbox::services::system::auth_config> get_auth_config();
+
+};
+}
+}
+}
+
+}
+
 namespace Pre_1_2_3 {
 
 namespace xbox {
