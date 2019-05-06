@@ -1,5 +1,5 @@
 // This file was automatically generated using tools/process_headers.py
-// Generated on Sun May 05 2019 18:19:08 UTC
+// Generated on Mon May 06 2019 16:20:19 UTC
 
 #include <hybris/dlfcn.h>
 #include <log.h>
@@ -357,18 +357,6 @@ static void (MinecraftGame::*_MinecraftGame_requestLeaveGame)(bool, bool);
 void MinecraftGame::requestLeaveGame(bool p1, bool p2) {
     (this->*_MinecraftGame_requestLeaveGame)(p1, p2);
 }
-static void (MinecraftGame::*_MinecraftGame_update)();
-void MinecraftGame::update() {
-    (this->*_MinecraftGame_update)();
-}
-static void (MinecraftGame::*_MinecraftGame_setRenderingSize)(int, int);
-void MinecraftGame::setRenderingSize(int p1, int p2) {
-    (this->*_MinecraftGame_setRenderingSize)(p1, p2);
-}
-static void (MinecraftGame::*_MinecraftGame_setUISizeAndScale)(int, int, float);
-void MinecraftGame::setUISizeAndScale(int p1, int p2, float p3) {
-    (this->*_MinecraftGame_setUISizeAndScale)(p1, p2, p3);
-}
 static void (MinecraftGame::*_MinecraftGame_doPrimaryClientReadyWork)(mcpe::function<void ( )>);
 void MinecraftGame::doPrimaryClientReadyWork(mcpe::function<void ( )> p1) {
     (this->*_MinecraftGame_doPrimaryClientReadyWork)(p1);
@@ -482,6 +470,27 @@ void App::quit(mcpe::string const & p1, mcpe::string const & p2) {
     u.funcp = nullptr;
     u.voidp = vtable[vti_App_quit];
     (this->*u.funcp)(p1, p2);
+}
+static int vti_App_update;
+void App::update() {
+    union { void* voidp; void (App::*funcp)(); } u;
+    u.funcp = nullptr;
+    u.voidp = vtable[vti_App_update];
+    (this->*u.funcp)();
+}
+static int vti_App_setRenderingSize;
+void App::setRenderingSize(int p1, int p2) {
+    union { void* voidp; void (App::*funcp)(int, int); } u;
+    u.funcp = nullptr;
+    u.voidp = vtable[vti_App_setRenderingSize];
+    (this->*u.funcp)(p1, p2);
+}
+static int vti_App_setUISizeAndScale;
+void App::setUISizeAndScale(int p1, int p2, float p3) {
+    union { void* voidp; void (App::*funcp)(int, int, float); } u;
+    u.funcp = nullptr;
+    u.voidp = vtable[vti_App_setUISizeAndScale];
+    (this->*u.funcp)(p1, p2, p3);
 }
 static int vti_App_wantToQuit;
 bool App::wantToQuit() {
@@ -1034,12 +1043,6 @@ void minecraft_symbols_init(void* handle) {
     if (_MinecraftGame_isInGame == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZNK13MinecraftGame8isInGameEv");
     ((void*&) _MinecraftGame_requestLeaveGame) = hybris_dlsym(handle, "_ZN13MinecraftGame16requestLeaveGameEbb");
     if (_MinecraftGame_requestLeaveGame == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZN13MinecraftGame16requestLeaveGameEbb");
-    ((void*&) _MinecraftGame_update) = hybris_dlsym(handle, "_ZN13MinecraftGame6updateEv");
-    if (_MinecraftGame_update == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZN13MinecraftGame6updateEv");
-    ((void*&) _MinecraftGame_setRenderingSize) = hybris_dlsym(handle, "_ZN13MinecraftGame16setRenderingSizeEii");
-    if (_MinecraftGame_setRenderingSize == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZN13MinecraftGame16setRenderingSizeEii");
-    ((void*&) _MinecraftGame_setUISizeAndScale) = hybris_dlsym(handle, "_ZN13MinecraftGame17setUISizeAndScaleEiif");
-    if (_MinecraftGame_setUISizeAndScale == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZN13MinecraftGame17setUISizeAndScaleEiif");
     ((void*&) _MinecraftGame_doPrimaryClientReadyWork) = hybris_dlsym(handle, "_ZN13MinecraftGame24doPrimaryClientReadyWorkESt8functionIFvvEE");
     if (_MinecraftGame_doPrimaryClientReadyWork == nullptr) Log::error("MinecraftSymbols", "Unresolved symbol: %s", "_ZN13MinecraftGame24doPrimaryClientReadyWorkESt8functionIFvvEE");
     ((void*&) _MinecraftGame_getPrimaryUserOptions) = hybris_dlsym(handle, "_ZN13MinecraftGame21getPrimaryUserOptionsEv");
@@ -1097,6 +1100,12 @@ void minecraft_symbols_init(void* handle) {
     void** vt_App = (void**) hybris_dlsym(handle, "_ZTV3App") + 2;
     vti_App_quit = resolve_vtable_func(vt_App, hybris_dlsym(handle, "_ZN3App4quitERKSsS1_"));
     if (vti_App_quit == -1) Log::error("MinecraftSymbols", "Unresolved vtable symbol: %s", "_ZN3App4quitERKSsS1_");
+    vti_App_update = resolve_vtable_func(vt_App, hybris_dlsym(handle, "_ZN3App6updateEv"));
+    if (vti_App_update == -1) Log::error("MinecraftSymbols", "Unresolved vtable symbol: %s", "_ZN3App6updateEv");
+    vti_App_setRenderingSize = resolve_vtable_func(vt_App, hybris_dlsym(handle, "_ZN3App16setRenderingSizeEii"));
+    if (vti_App_setRenderingSize == -1) Log::error("MinecraftSymbols", "Unresolved vtable symbol: %s", "_ZN3App16setRenderingSizeEii");
+    vti_App_setUISizeAndScale = resolve_vtable_func(vt_App, hybris_dlsym(handle, "_ZN3App17setUISizeAndScaleEiif"));
+    if (vti_App_setUISizeAndScale == -1) Log::error("MinecraftSymbols", "Unresolved vtable symbol: %s", "_ZN3App17setUISizeAndScaleEiif");
     vti_App_wantToQuit = resolve_vtable_func(vt_App, hybris_dlsym(handle, "_ZN3App10wantToQuitEv"));
     if (vti_App_wantToQuit == -1) Log::error("MinecraftSymbols", "Unresolved vtable symbol: %s", "_ZN3App10wantToQuitEv");
     ((void*&) _PermissionsFile_PermissionsFile) = hybris_dlsym(handle, "_ZN15PermissionsFileC2ERKSs");

@@ -21,12 +21,6 @@ public:
 
     void requestLeaveGame(bool, bool);
 
-    void update();
-
-    void setRenderingSize(int, int);
-
-    void setUISizeAndScale(int, int, float);
-
     /// @symbol _ZN13MinecraftGame24doPrimaryClientReadyWorkESt8functionIFvvEE
     void doPrimaryClientReadyWork(mcpe::function<void ()>);
 
