@@ -1,5 +1,5 @@
 // This file was automatically generated using tools/process_headers.py
-// Generated on Mon May 06 2019 16:20:19 UTC
+// Generated on Mon May 06 2019 16:25:14 UTC
 
 #include <hybris/dlfcn.h>
 #include <log.h>
@@ -848,6 +848,22 @@ static Options * (Legacy::Pre_1_2::MinecraftGame::*_Legacy_Pre_1_2_MinecraftGame
 Options * Legacy::Pre_1_2::MinecraftGame::getOptions() {
     return (this->*_Legacy_Pre_1_2_MinecraftGame_getOptions)();
 }
+static void (Legacy::Pre_1_1::MinecraftClient::*_Legacy_Pre_1_1_MinecraftClient_MinecraftClient)(int, char * *);
+Legacy::Pre_1_1::MinecraftClient::MinecraftClient(int p1, char * * p2) {
+    (this->*_Legacy_Pre_1_1_MinecraftClient_MinecraftClient)(p1, p2);
+}
+static void (Legacy::Pre_1_1::MinecraftClient::*_Legacy_Pre_1_1_MinecraftClient_destructor)();
+Legacy::Pre_1_1::MinecraftClient::~MinecraftClient() {
+    (this->*_Legacy_Pre_1_1_MinecraftClient_destructor)();
+}
+static void (Legacy::Pre_1_1::MinecraftClient::*_Legacy_Pre_1_1_MinecraftClient_setTextboxText)(mcpe::string const &);
+void Legacy::Pre_1_1::MinecraftClient::setTextboxText(mcpe::string const & p1) {
+    (this->*_Legacy_Pre_1_1_MinecraftClient_setTextboxText)(p1);
+}
+static Options * (Legacy::Pre_1_1::MinecraftClient::*_Legacy_Pre_1_1_MinecraftClient_getOptions)();
+Options * Legacy::Pre_1_1::MinecraftClient::getOptions() {
+    return (this->*_Legacy_Pre_1_1_MinecraftClient_getOptions)();
+}
 
 #include "legacy/Keyboard.h"
 std::vector<Legacy::Pre_1_2::Keyboard::InputEvent> * Legacy::Pre_1_2::Keyboard::_inputs;
@@ -1242,6 +1258,10 @@ void minecraft_symbols_init(void* handle) {
     ((void*&) _Legacy_Pre_1_2_xbox_services_system_user_impl_android_get_instance) = hybris_dlsym(handle, "_ZN4xbox8services6system17user_impl_android12get_instanceEv");
     ((void*&) _Legacy_Pre_1_2_10_MinecraftGame_setTextboxText) = hybris_dlsym(handle, "_ZN13MinecraftGame14setTextboxTextERKSs");
     ((void*&) _Legacy_Pre_1_2_MinecraftGame_getOptions) = hybris_dlsym(handle, "_ZN13MinecraftGame10getOptionsEv");
+    ((void*&) _Legacy_Pre_1_1_MinecraftClient_MinecraftClient) = hybris_dlsym(handle, "_ZN15MinecraftClientC2EiPPc");
+    ((void*&) _Legacy_Pre_1_1_MinecraftClient_destructor) = hybris_dlsym(handle, "_ZN15MinecraftClientD2Ev");
+    ((void*&) _Legacy_Pre_1_1_MinecraftClient_setTextboxText) = hybris_dlsym(handle, "_ZN15MinecraftClient14setTextboxTextERKSs");
+    ((void*&) _Legacy_Pre_1_1_MinecraftClient_getOptions) = hybris_dlsym(handle, "_ZN15MinecraftClient10getOptionsEv");
     ((void*&) Legacy::Pre_1_2::Keyboard::_inputs) = hybris_dlsym(handle, "_ZN8Keyboard7_inputsE");
     vti_Legacy_Pre_1_8_App_quit = resolve_vtable_func(vt_App, hybris_dlsym(handle, "_ZN3App4quitEv"));
     ((void*&) _Legacy_Pre_1_2_10_AppPlatform_showKeyboard) = hybris_dlsym(handle, "_ZN11AppPlatform12showKeyboardERKSsibbbRK4Vec2");
