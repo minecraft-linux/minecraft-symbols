@@ -34,6 +34,8 @@ namespace Pre_1_1 {
 class MinecraftClient : public ::App {
 
 public:
+    char filer[0x4000];
+
     /// @symbol _ZN15MinecraftClientC2EiPPc
     MinecraftClient(int carg, char** args);
 
