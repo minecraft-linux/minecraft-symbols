@@ -1,5 +1,5 @@
 // This file was automatically generated using tools/process_headers.py
-// Generated on Wed May 08 2019 16:31:18 UTC
+// Generated on Wed May 08 2019 16:31:28 UTC
 
 #include <hybris/dlfcn.h>
 #include <log.h>
@@ -893,6 +893,13 @@ void Legacy::Pre_1_2::StoreListener::onQueryProductsSuccess(std::vector<ProductI
     u.voidp = vtable[vti_Legacy_Pre_1_2_StoreListener_onQueryProductsSuccess];
     (this->*u.funcp)(p1);
 }
+static int vti_Legacy_Pre_0_17_StoreListener_onQueryProductsSuccess;
+void Legacy::Pre_0_17::StoreListener::onQueryProductsSuccess(std::vector<Product> const & p1) {
+    union { void* voidp; void (Legacy::Pre_0_17::StoreListener::*funcp)(std::vector<Product> const &); } u;
+    u.funcp = nullptr;
+    u.voidp = vtable[vti_Legacy_Pre_0_17_StoreListener_onQueryProductsSuccess];
+    (this->*u.funcp)(p1);
+}
 
 static int resolve_vtable_func(void** vtable, void* what) {
     if (vtable - 2 == nullptr)
@@ -1275,4 +1282,5 @@ void minecraft_symbols_init(void* handle) {
     vti_Legacy_Pre_1_8_App_quit = resolve_vtable_func(vt_App, hybris_dlsym(handle, "_ZN3App4quitEv"));
     ((void*&) _Legacy_Pre_1_2_10_AppPlatform_showKeyboard) = hybris_dlsym(handle, "_ZN11AppPlatform12showKeyboardERKSsibbbRK4Vec2");
     vti_Legacy_Pre_1_2_StoreListener_onQueryProductsSuccess = resolve_vtable_func(vt_GameStore, hybris_dlsym(handle, "_ZN9GameStore22onQueryProductsSuccessERKSt6vectorI7ProductSaIS1_EE"));
+    vti_Legacy_Pre_0_17_StoreListener_onQueryProductsSuccess = resolve_vtable_func(vt_GameStore, hybris_dlsym(handle, "_ZN9GameStore22onQueryProductsSuccessERKSt6vectorI7ProductSaIS1_EE"));
 }
