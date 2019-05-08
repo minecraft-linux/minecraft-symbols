@@ -1,5 +1,5 @@
 // This file was automatically generated using tools/process_headers.py
-// Generated on Wed May 08 2019 16:39:32 UTC
+// Generated on Wed May 08 2019 17:05:52 UTC
 
 #include <hybris/dlfcn.h>
 #include <log.h>
@@ -887,6 +887,9 @@ void Legacy::Pre_1_2_10::AppPlatform::showKeyboard(mcpe::string const & p1, int 
     (this->*_Legacy_Pre_1_2_10_AppPlatform_showKeyboard)(p1, p2, p3, p4, p5, p6);
 }
 
+#include "legacy/SharedConstants.h"
+int * Legacy::Pre_0_17::SharedConstants::BetaVersion;
+
 #include "legacy/FilePickerSettings.h"
 
 #include "legacy/Store.h"
@@ -1286,6 +1289,7 @@ void minecraft_symbols_init(void* handle) {
     ((void*&) _Legacy_Pre_0_17_Keyboard_feedText) = hybris_dlsym(handle, "_ZN8Keyboard8feedTextERKSsb");
     vti_Legacy_Pre_1_8_App_quit = resolve_vtable_func(vt_App, hybris_dlsym(handle, "_ZN3App4quitEv"));
     ((void*&) _Legacy_Pre_1_2_10_AppPlatform_showKeyboard) = hybris_dlsym(handle, "_ZN11AppPlatform12showKeyboardERKSsibbbRK4Vec2");
+    ((void*&) Legacy::Pre_0_17::SharedConstants::BetaVersion) = hybris_dlsym(handle, "_ZN6Legacy8Pre_0_1715SharedConstants11BetaVersionE");
     vti_Legacy_Pre_1_2_StoreListener_onQueryProductsSuccess = resolve_vtable_func(vt_GameStore, hybris_dlsym(handle, "_ZN9GameStore22onQueryProductsSuccessERKSt6vectorI7ProductSaIS1_EE"));
     vti_Legacy_Pre_0_17_StoreListener_onQueryProductsSuccess = resolve_vtable_func(vt_GameStore, hybris_dlsym(handle, "_ZN9GameStore22onQueryProductsSuccessERKSt6vectorI7ProductSaIS1_EE"));
 }
