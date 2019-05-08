@@ -1,5 +1,5 @@
 // This file was automatically generated using tools/process_headers.py
-// Generated on Wed May 08 2019 16:31:28 UTC
+// Generated on Wed May 08 2019 16:39:32 UTC
 
 #include <hybris/dlfcn.h>
 #include <log.h>
@@ -867,6 +867,10 @@ Options * Legacy::Pre_1_1::MinecraftClient::getOptions() {
 
 #include "legacy/Keyboard.h"
 std::vector<Legacy::Pre_1_2::Keyboard::InputEvent> * Legacy::Pre_1_2::Keyboard::_inputs;
+static void (*_Legacy_Pre_0_17_Keyboard_feedText)(mcpe::string const &, bool);
+void Legacy::Pre_0_17::Keyboard::feedText(mcpe::string const & p1, bool p2) {
+    _Legacy_Pre_0_17_Keyboard_feedText(p1, p2);
+}
 
 #include "legacy/App.h"
 static int vti_Legacy_Pre_1_8_App_quit;
@@ -1279,6 +1283,7 @@ void minecraft_symbols_init(void* handle) {
     ((void*&) _Legacy_Pre_1_1_MinecraftClient_setTextboxText) = hybris_dlsym(handle, "_ZN15MinecraftClient14setTextboxTextERKSs");
     ((void*&) _Legacy_Pre_1_1_MinecraftClient_getOptions) = hybris_dlsym(handle, "_ZN15MinecraftClient10getOptionsEv");
     ((void*&) Legacy::Pre_1_2::Keyboard::_inputs) = hybris_dlsym(handle, "_ZN8Keyboard7_inputsE");
+    ((void*&) _Legacy_Pre_0_17_Keyboard_feedText) = hybris_dlsym(handle, "_ZN8Keyboard8feedTextERKSsb");
     vti_Legacy_Pre_1_8_App_quit = resolve_vtable_func(vt_App, hybris_dlsym(handle, "_ZN3App4quitEv"));
     ((void*&) _Legacy_Pre_1_2_10_AppPlatform_showKeyboard) = hybris_dlsym(handle, "_ZN11AppPlatform12showKeyboardERKSsibbbRK4Vec2");
     vti_Legacy_Pre_1_2_StoreListener_onQueryProductsSuccess = resolve_vtable_func(vt_GameStore, hybris_dlsym(handle, "_ZN9GameStore22onQueryProductsSuccessERKSt6vectorI7ProductSaIS1_EE"));

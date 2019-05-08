@@ -24,4 +24,16 @@ public:
 
 }
 
+namespace Pre_0_17 {
+
+class Keyboard {
+
+public:
+    /// @symbol _ZN8Keyboard8feedTextERKSsb
+    static void feedText(mcpe::string const&, bool);
+
+};
+
+}
+
 }
