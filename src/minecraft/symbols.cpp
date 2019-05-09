@@ -1,5 +1,5 @@
 // This file was automatically generated using tools/process_headers.py
-// Generated on Wed May 08 2019 18:45:55 UTC
+// Generated on Thu May 09 2019 11:30:22 UTC
 
 #include <hybris/dlfcn.h>
 #include <log.h>
@@ -838,6 +838,10 @@ static std::shared_ptr<Legacy::Pre_1_2::xbox::services::system::user_impl_androi
 std::shared_ptr<Legacy::Pre_1_2::xbox::services::system::user_impl_android> Legacy::Pre_1_2::xbox::services::system::user_impl_android::get_instance() {
     return _Legacy_Pre_1_2_xbox_services_system_user_impl_android_get_instance();
 }
+static std::shared_ptr<Legacy::Pre_0_15_2::xbox::services::system::user_impl_android> (*_Legacy_Pre_0_15_2_xbox_services_system_user_impl_android_get_instance)();
+std::shared_ptr<Legacy::Pre_0_15_2::xbox::services::system::user_impl_android> Legacy::Pre_0_15_2::xbox::services::system::user_impl_android::get_instance() {
+    return _Legacy_Pre_0_15_2_xbox_services_system_user_impl_android_get_instance();
+}
 
 #include "legacy/MinecraftGame.h"
 static void (Legacy::Pre_1_2_10::MinecraftGame::*_Legacy_Pre_1_2_10_MinecraftGame_setTextboxText)(mcpe::string const &);
@@ -1285,6 +1289,7 @@ void minecraft_symbols_init(void* handle) {
     ((void*&) Legacy::Pre_1_2::xbox::services::system::user_impl_android::s_rpsTicketCompletionEvent) = hybris_dlsym(handle, "_ZN4xbox8services6system17user_impl_android26s_rpsTicketCompletionEventE");
     ((void*&) Legacy::Pre_1_2::xbox::services::system::user_impl_android::s_signOutCompleteEvent) = hybris_dlsym(handle, "_ZN4xbox8services6system17user_impl_android22s_signOutCompleteEventE");
     ((void*&) _Legacy_Pre_1_2_xbox_services_system_user_impl_android_get_instance) = hybris_dlsym(handle, "_ZN4xbox8services6system17user_impl_android12get_instanceEv");
+    ((void*&) _Legacy_Pre_0_15_2_xbox_services_system_user_impl_android_get_instance) = hybris_dlsym(handle, "_ZN4xbox8services6system17user_impl_android12get_instanceEv");
     ((void*&) _Legacy_Pre_1_2_10_MinecraftGame_setTextboxText) = hybris_dlsym(handle, "_ZN13MinecraftGame14setTextboxTextERKSs");
     ((void*&) _Legacy_Pre_1_2_MinecraftGame_getOptions) = hybris_dlsym(handle, "_ZN13MinecraftGame10getOptionsEv");
     ((void*&) _Legacy_Pre_1_1_MinecraftClient_MinecraftClient) = hybris_dlsym(handle, "_ZN15MinecraftClientC2EiPPc");

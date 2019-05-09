@@ -186,4 +186,34 @@ struct user_impl_android {
 
 }
 
+namespace Pre_0_15_2 {
+
+namespace xbox {
+namespace services {
+
+
+namespace system {
+
+struct user_impl_android {
+
+    /// @symbol _ZN4xbox8services6system17user_impl_android12get_instanceEv
+    static std::shared_ptr<Legacy::Pre_0_15_2::xbox::services::system::user_impl_android> get_instance();
+
+    char filler2[0x20]; // 20
+    mcpe::string cid; // 24
+    char filler3[0x5C-0x24];
+    Pre_1_2_3::pplx::task_completion_event_auth_flow_result auth_flow_event;
+    char filler4[0x90-0x5C-0xc];
+    Pre_1_2_3::xbox::services::system::auth_flow_result auth_flow_result;
+
+
+};
+
+}
+
+}
+}
+
+}
+
 }
