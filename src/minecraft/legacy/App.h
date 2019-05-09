@@ -9,9 +9,23 @@ class App {
 public:
     void** vtable;
 
-    /* Pre 1.8 */
     /// @vtable App _ZN3App4quitEv
     void quit();
+
+};
+
+}
+
+
+namespace Pre_0_15 {
+
+class App {
+
+public:
+    void** vtable;
+
+    /// @vtable App _ZN3App7setSizeEiif
+    void setSize(int, int, float);
 
 };
 

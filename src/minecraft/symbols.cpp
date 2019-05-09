@@ -1,5 +1,5 @@
 // This file was automatically generated using tools/process_headers.py
-// Generated on Thu May 09 2019 11:30:22 UTC
+// Generated on Thu May 09 2019 14:16:42 UTC
 
 #include <hybris/dlfcn.h>
 #include <log.h>
@@ -884,6 +884,13 @@ void Legacy::Pre_1_8::App::quit() {
     u.voidp = vtable[vti_Legacy_Pre_1_8_App_quit];
     (this->*u.funcp)();
 }
+static int vti_Legacy_Pre_0_15_App_setSize;
+void Legacy::Pre_0_15::App::setSize(int p1, int p2, float p3) {
+    union { void* voidp; void (Legacy::Pre_0_15::App::*funcp)(int, int, float); } u;
+    u.funcp = nullptr;
+    u.voidp = vtable[vti_Legacy_Pre_0_15_App_setSize];
+    (this->*u.funcp)(p1, p2, p3);
+}
 
 #include "legacy/AppPlatform.h"
 static void (Legacy::Pre_1_2_10::AppPlatform::*_Legacy_Pre_1_2_10_AppPlatform_showKeyboard)(mcpe::string const &, int, bool, bool, bool, Vec2 const &);
@@ -1299,6 +1306,7 @@ void minecraft_symbols_init(void* handle) {
     ((void*&) Legacy::Pre_1_2::Keyboard::_inputs) = hybris_dlsym(handle, "_ZN8Keyboard7_inputsE");
     ((void*&) _Legacy_Pre_0_17_Keyboard_feedText) = hybris_dlsym(handle, "_ZN8Keyboard8feedTextERKSsb");
     vti_Legacy_Pre_1_8_App_quit = resolve_vtable_func(vt_App, hybris_dlsym(handle, "_ZN3App4quitEv"));
+    vti_Legacy_Pre_0_15_App_setSize = resolve_vtable_func(vt_App, hybris_dlsym(handle, "_ZN3App7setSizeEiif"));
     ((void*&) _Legacy_Pre_1_2_10_AppPlatform_showKeyboard) = hybris_dlsym(handle, "_ZN11AppPlatform12showKeyboardERKSsibbbRK4Vec2");
     ((void*&) Legacy::Pre_0_17::SharedConstants::BetaVersion) = hybris_dlsym(handle, "_ZN15SharedConstants11BetaVersionE");
     ((void*&) _Legacy_Pre_1_0_4_mce_UUID_toString) = hybris_dlsym(handle, "_ZNK3mce4UUID8toStringEv");
