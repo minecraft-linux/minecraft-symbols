@@ -23,6 +23,8 @@ public:
 
     string &operator=(const string &str);
 
+    void resize(std::size_t size);
+
     size_t length() const;
     const char *c_str() const;
 

@@ -11,7 +11,8 @@ mcpe::string::_Rep* mcpe::string::createRep(const char* data, size_t length, siz
     rp->capacity = capacity;
     rp->refcount = -1;
     char* rp_data = (char*) (rp + 1);
-    memcpy((void*) rp_data, data, length);
+    if (data != nullptr)
+        memcpy((void*) rp_data, data, length);
     rp_data[length] = '\0';
     return rp;
 }
@@ -37,6 +38,18 @@ mcpe::string::~string() {
     if (ptr == empty->ptr)
         return;
     getRep()->removeRef();
+}
+
+void mcpe::string::resize(std::size_t size) {
+    if (length() == size)
+        return;
+    if (size <= getRep()->capacity) {
+        getRep()->length = size;
+    } else {
+        _Rep* newRep = createRep(nullptr, size, size);
+        memcpy(rp + 1, c_str(), length() + 1);
+        assignRep(newRep);
+    }
 }
 
 size_t mcpe::string::length() const {

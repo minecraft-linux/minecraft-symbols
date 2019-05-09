@@ -61,6 +61,12 @@ mcpe::string& mcpe::string::operator=(const mcpe::string &str) {
     return *this;
 }
 
+void mcpe::string::resize(std::size_t size) {
+    if (ptr == empty->ptr)
+        new (this)std::string();
+    ((std::string*) this)->resize(size);
+}
+
 const char *mcpe::string::c_str() const {
     if (ptr == empty->ptr)
         return "";
