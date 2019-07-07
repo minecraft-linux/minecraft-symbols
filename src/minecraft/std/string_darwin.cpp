@@ -47,7 +47,7 @@ void mcpe::string::resize(std::size_t size) {
         getRep()->length = size;
     } else {
         _Rep* newRep = createRep(nullptr, size, size);
-        memcpy(rp + 1, c_str(), length() + 1);
+        memcpy(newRep + 1, c_str(), length() + 1);
         assignRep(newRep);
     }
 }
