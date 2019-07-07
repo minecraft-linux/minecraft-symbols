@@ -7,7 +7,10 @@
 class Options;
 class ClientInstance;
 
-class MinecraftGame : public App {
+namespace BedrockEngine {
+    struct AppIsland { void* appIsland_vtable; };
+};
+class MinecraftGame : public BedrockEngine::AppIsland, public App {
 
 public:
 

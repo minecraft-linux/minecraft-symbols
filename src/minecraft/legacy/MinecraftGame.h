@@ -5,6 +5,21 @@
 
 namespace Legacy {
 
+namespace Pre_1_13 {
+
+class MinecraftGame : public App {
+
+public:
+
+    char filler [0x4000];
+
+    /// @symbol _ZN13MinecraftGameD2Ev
+    ~MinecraftGame();
+
+};
+
+}
+
 namespace Pre_1_2_10 {
 
 class MinecraftGame {
