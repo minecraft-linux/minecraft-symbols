@@ -30,6 +30,7 @@ public:
 
     void teardown();
 
+    /// @symbol _ZN11AppPlatform12showKeyboardERKSsibbbiRKN3glm5tvec2IfLNS2_9precisionE0EEE
     void showKeyboard(mcpe::string const&, int, bool, bool, bool, int, Vec2 const&);
 
     void hideKeyboard();
