@@ -321,7 +321,7 @@ output("#include <hybris/dlfcn.h>")
 output("#include <log.h>")
 output("")
 header_dir = "../src/minecraft/"
-for file in os.listdir(header_dir):
+for file in sorted(os.listdir(header_dir)):
     file_path = os.path.join(header_dir, file)
     if not os.path.isfile(file_path) or not file.endswith(".h"):
         continue
@@ -331,7 +331,7 @@ for file in os.listdir(header_dir):
     process_header(file_path)
     output("")
 legacy_header_dir = header_dir + "legacy/"
-for file in os.listdir(legacy_header_dir):
+for file in sorted(os.listdir(legacy_header_dir)):
     file_path = os.path.join(legacy_header_dir, file)
     if not os.path.isfile(file_path) or not file.endswith(".h"):
         continue
