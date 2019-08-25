@@ -8,7 +8,7 @@ class PackSettings;
 
 struct PackInstance {
 
-    char filler[0x7C];
+    char filler[0x9C];
 
     PackInstance(ResourcePack*, int, bool, PackSettings*);
 

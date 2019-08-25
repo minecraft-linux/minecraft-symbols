@@ -5,9 +5,10 @@
 #include <unordered_map>
 #include "Resource.h"
 #include "UUID.h"
+#include "Core.h"
 class IMinecraftEventing;
 class IPackTelemetry;
-class FilePathManager;
+namespace Core { class FilePathManager; }
 class Options;
 class ResourcePack;
 class ResourcePackStack;
@@ -47,7 +48,7 @@ public:
 
     char filler[0x100];
 
-    PackSourceFactory(Options*);
+    PackSourceFactory();
 
 };
 
@@ -59,9 +60,11 @@ public:
     ResourcePack* vanillaPack;
     char filler2[0x100];
 
-    ResourcePackRepository(IMinecraftEventing&, PackManifestFactory&, IContentAccessibilityProvider&, FilePathManager*, PackSourceFactory&, bool);
+    /// @symbol _ZN22ResourcePackRepositoryC2ER18IMinecraftEventingR19PackManifestFactoryR29IContentAccessibilityProviderPN4Core15FilePathManagerER17PackSourceFactoryb
+    ResourcePackRepository(IMinecraftEventing&, PackManifestFactory&, IContentAccessibilityProvider&, Core::FilePathManager*, PackSourceFactory&, bool);
 
-    void addWorldResourcePacks(mcpe::string const&);
+    /// @symbol _ZN22ResourcePackRepository21addWorldResourcePacksERKN4Core4PathE
+    void addWorldResourcePacks(Legacy::Pre_1_13::Core::Path const&);
 
     void refreshPacks();
 
@@ -83,8 +86,8 @@ public:
 
     char filler[0x100];
 
-    /// @symbol _ZN19ResourcePackManagerC2ESt8functionIFSsvEERK18ContentTierManagerb
-    ResourcePackManager(mcpe::function<mcpe::string ()> const&, ContentTierManager const&, bool);
+    /// @symbol _ZN19ResourcePackManagerC2ESt8functionIFN4Core10PathBufferISsEEvEERK18ContentTierManagerb
+    ResourcePackManager(mcpe::function<Core::PathBuffer ()> const&, ContentTierManager const&, bool);
 
     void setStack(std::unique_ptr<ResourcePackStack>, ResourcePackStackType, bool);
 

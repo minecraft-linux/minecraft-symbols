@@ -18,7 +18,7 @@ class IMinecraftEventing;
 class ResourcePackRepository;
 class ResourcePackManager;
 class ContentTierManager;
-class FilePathManager;
+namespace Core { class FilePathManager; }
 class IContentKeyProvider;
 class LevelStorage;
 class Scheduler;
@@ -71,8 +71,8 @@ public:
     /// @symbol _ZN14ServerInstanceC2ER13IMinecraftAppR30ServerInstanceEventCoordinator
     ServerInstance(IMinecraftApp&, ServerInstanceEventCoordinator&);
 
-    /// @symbol _ZN14ServerInstance16initializeServerER13IMinecraftAppR9WhitelistP15PermissionsFileP15FilePathManagerNSt6chrono8durationIxSt5ratioILx1ELx1EEEESsSsSs13LevelSettingsib20ConnectionDefinitionbRKSt6vectorISsSaISsEESsRKN3mce4UUIDER18IMinecraftEventingR22ResourcePackRepositoryRK18ContentTierManagerR19ResourcePackManagerSt8functionIFSt10unique_ptrI12LevelStorageSt14default_deleteISZ_EER9SchedulerEERKSsP9LevelDataSsSsSY_I16EducationOptionsS10_IS1B_EEPSV_SX_IFvS18_EES1G_P13ServerMetricsP13DebugEndPoint
-    void initializeServer(IMinecraftApp&, Whitelist&, PermissionsFile*, FilePathManager*, std::chrono::seconds, mcpe::string, mcpe::string, mcpe::string, LevelSettings, int, bool, ConnectionDefinition, bool, std::vector<mcpe::string> const&, mcpe::string, mce::UUID const&, IMinecraftEventing&, ResourcePackRepository&, ContentTierManager const&, ResourcePackManager&, std::function<std::unique_ptr<LevelStorage> (Scheduler&)>, mcpe::string const&, LevelData*, mcpe::string, mcpe::string, std::unique_ptr<EducationOptions>, ResourcePackManager*, std::function<void (mcpe::string const&)>, std::function<void (mcpe::string const&)>, ServerMetrics*, DebugEndPoint*);
+    /// @symbol _ZN14ServerInstance16initializeServerER13IMinecraftAppR9WhitelistP15PermissionsFilePN4Core15FilePathManagerENSt6chrono8durationIxSt5ratioILx1ELx1EEEESsSsSs13LevelSettingsib20ConnectionDefinitionbRKSt6vectorISsSaISsEESsRKN3mce4UUIDER18IMinecraftEventingR22ResourcePackRepositoryRK18ContentTierManagerR19ResourcePackManagerSt8functionIFSt10unique_ptrI12LevelStorageSt14default_deleteIS10_EER9SchedulerEERKSsP9LevelDataSsSsSZ_I16EducationOptionsS11_IS1C_EEPSW_SY_IFvvEES1H_P13ServerMetricsP13DebugEndPointb
+    void initializeServer(IMinecraftApp&, Whitelist&, PermissionsFile*, Core::FilePathManager*, std::chrono::seconds, mcpe::string, mcpe::string, mcpe::string, LevelSettings, int, bool, ConnectionDefinition, bool, std::vector<mcpe::string> const&, mcpe::string, mce::UUID const&, IMinecraftEventing&, ResourcePackRepository&, ContentTierManager const&, ResourcePackManager&, std::function<std::unique_ptr<LevelStorage> (Scheduler&)>, mcpe::string const&, LevelData*, mcpe::string, mcpe::string, std::unique_ptr<EducationOptions>, ResourcePackManager*, std::function<void ()>, std::function<void ()>, ServerMetrics*, DebugEndPoint*, bool);
 
     ~ServerInstance();
 
