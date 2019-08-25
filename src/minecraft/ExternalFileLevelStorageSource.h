@@ -4,7 +4,7 @@
 #include "std/string.h"
 #include "SaveTransactionManager.h"
 #include "ContentIdentity.h"
-class FilePathManager;
+namespace Core { class FilePathManager; }
 class Scheduler;
 class IContentKeyProvider;
 
@@ -18,7 +18,8 @@ struct ExternalFileLevelStorageSource {
 public:
     char filler[0x10];
 
-    ExternalFileLevelStorageSource(FilePathManager*, std::shared_ptr<SaveTransactionManager>);
+    /// @symbol _ZN30ExternalFileLevelStorageSourceC2EPN4Core15FilePathManagerESt10shared_ptrI22SaveTransactionManagerE
+    ExternalFileLevelStorageSource(Core::FilePathManager*, std::shared_ptr<SaveTransactionManager>);
 
     /// @symbol _ZN30ExternalFileLevelStorageSource18createLevelStorageER9SchedulerRKSsRK15ContentIdentityRK19IContentKeyProvider
     std::unique_ptr<LevelStorage> createLevelStorage(Scheduler&, mcpe::string const&, ContentIdentity const&, IContentKeyProvider const&);
