@@ -4,6 +4,7 @@ import datetime
 import re
 import os
 import argparse
+from symbolless import generate_version_data
 
 parser = argparse.ArgumentParser(description='Generates symbols.cpp')
 parser.add_argument('--armhf', help='Sets the system abi as armhf', action='store_true')
@@ -221,7 +222,7 @@ def process_method(method, is_class, is_legacy):
     if ret_type.startswith("static "):
         ret_type = ret_type[len("static "):]
     if vtable_name is not None:
-        output("static int vti" + wrapper_name + ";")
+        output("static int vti" + wrapper_name + " = -1;")
     elif method["static"] or not is_class:
         output("static " + ret_type + " (*" + wrapper_name + ")(" + params_str + ");")
     else:
@@ -295,6 +296,7 @@ def generate_init_func():
     vtables = {}
 
     output("void minecraft_symbols_init(void* handle) {")
+    output("    set_current_version_data(find_version_data(version_data, sizeof(version_data) / sizeof(VersionData), handle));")
     for symbol in symbol_list:
         if "vtable_name" in symbol and symbol["vtable_name"] is not None:
             vt_var_name = "vt_" + symbol["vtable_name"].replace("::", "_")
@@ -302,13 +304,13 @@ def generate_init_func():
                 vt_sym_name = get_mangled_type_name(symbol["vtable_name"], [])
                 if "::" in symbol["vtable_name"]:
                     vt_sym_name = "N" + vt_sym_name + "E"
-                output("    void** " + vt_var_name + " = (void**) hybris_dlsym(handle, \"_ZTV" + vt_sym_name + "\") + 2;")
+                output("    void** " + vt_var_name + " = (void**) minecraft_dlsym(handle, \"_ZTV" + vt_sym_name + "\") + 2;")
                 vtables[symbol["vtable_name"]] = True
-            output("    vti" + symbol["name"] + " = resolve_vtable_func(" + vt_var_name + ", hybris_dlsym(handle, \"" + symbol["symbol"] + "\"));")
+            output("    if (vti" + symbol["name"] + " == -1) vti" + symbol["name"] + " = resolve_vtable_func(" + vt_var_name + ", minecraft_dlsym(handle, \"" + symbol["symbol"] + "\"));")
             if not symbol["is_legacy"]:
                 output("    if (vti" + symbol["name"] + " == -1) Log::error(\"MinecraftSymbols\", \"Unresolved vtable symbol: %s\", \"" + symbol["symbol"] + "\");")
             continue
-        output("    ((void*&) " + symbol["name"] + ") = hybris_dlsym(handle, \"" + symbol["symbol"] + "\");")
+        output("    ((void*&) " + symbol["name"] + ") = minecraft_dlsym(handle, \"" + symbol["symbol"] + "\");")
         if not symbol["is_legacy"]:
             output("    if (" + symbol["name"] + " == nullptr) Log::error(\"MinecraftSymbols\", \"Unresolved symbol: %s\", \"" + symbol["symbol"] + "\");")
     output("}")
@@ -319,13 +321,14 @@ output("// Generated on " + datetime.datetime.utcnow().strftime("%a %b %d %Y %H:
 output("")
 output("#include <hybris/dlfcn.h>")
 output("#include <log.h>")
+output("#include \"symbols_internal.h\"")
 output("")
 header_dir = "../src/minecraft/"
 for file in sorted(os.listdir(header_dir)):
     file_path = os.path.join(header_dir, file)
     if not os.path.isfile(file_path) or not file.endswith(".h"):
         continue
-    if file == "symbols.h":
+    if file == "symbols.h" or file == "symbols_internal.h":
         continue
     output("#include \"" + file + "\"")
     process_header(file_path)
@@ -338,6 +341,18 @@ for file in sorted(os.listdir(legacy_header_dir)):
     output("#include \"legacy/" + file + "\"")
     process_header(file_path, True)
     output("")
+
+vd_gen_vt_data = {}
+for symbol in symbol_list:
+    if "vtable_name" in symbol and symbol["vtable_name"] is not None:
+        vt_var_name = "vt_" + symbol["vtable_name"].replace("::", "_")
+        if symbol["vtable_name"] not in vd_gen_vt_data:
+            vd_gen_vt_data[symbol["vtable_name"]] = {}
+        vd_gen_vt_data[symbol["vtable_name"]][symbol["symbol"]] = "vti" + symbol["name"]
+        continue
+generate_version_data(output, vd_gen_vt_data)
+
+output("")
 output("static int resolve_vtable_func(void** vtable, void* what) {")
 output("    if (vtable - 2 == nullptr)")
 output("        return -1;")
@@ -348,6 +363,7 @@ output("        if (vtable[i] == what)")
 output("            return i;")
 output("    }")
 output("}")
+
 generate_init_func()
 out_file.close()
 
