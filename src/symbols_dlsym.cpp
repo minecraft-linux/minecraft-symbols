@@ -4,7 +4,7 @@
 #include <hybris/dlfcn.h>
 #include <stdexcept>
 #include <minecraft/legacy/SharedConstants.h>
-#include "SharedConstants.h"
+#include <minecraft/SharedConstants.h>
 extern "C" {
 #include <hybris/jb/linker.h>
 }

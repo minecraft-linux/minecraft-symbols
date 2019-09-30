@@ -1,13 +1,13 @@
 // This file was automatically generated using tools/process_headers.py
-// Generated on Mon Sep 30 2019 19:42:26 UTC
+// Generated on Mon Sep 30 2019 19:44:18 UTC
 
 #include <hybris/dlfcn.h>
 #include <log.h>
 #include "symbols_internal.h"
 
-#include "Api.h"
+#include <minecraft/Api.h>
 
-#include "App.h"
+#include <minecraft/App.h>
 static void (App::*_App_init)(AppContext &);
 void App::init(AppContext & p1) {
     (this->*_App_init)(p1);
@@ -48,7 +48,7 @@ bool App::wantToQuit() {
     return (this->*u.funcp)();
 }
 
-#include "AppPlatform.h"
+#include <minecraft/AppPlatform.h>
 void * * AppPlatform::myVtable;
 AppPlatform * * AppPlatform::instance;
 static void (AppPlatform::*_AppPlatform_AppPlatform)();
@@ -84,19 +84,19 @@ AppPlatform::HardwareInformation & AppPlatform::getHardwareInformation() const {
     return (this->*_AppPlatform_getHardwareInformation)();
 }
 
-#include "AppResourceLoader.h"
+#include <minecraft/AppResourceLoader.h>
 static void (AppResourceLoader::*_AppResourceLoader_AppResourceLoader)(mcpe::function<Core::PathBuffer ( )>);
 AppResourceLoader::AppResourceLoader(mcpe::function<Core::PathBuffer ( )> p1) {
     (this->*_AppResourceLoader_AppResourceLoader)(p1);
 }
 
-#include "AutomationClient.h"
+#include <minecraft/AutomationClient.h>
 static void (Automation::AutomationClient::*_Automation_AutomationClient_AutomationClient)(IMinecraftApp &);
 Automation::AutomationClient::AutomationClient(IMinecraftApp & p1) {
     (this->*_Automation_AutomationClient_AutomationClient)(p1);
 }
 
-#include "ClientInstance.h"
+#include <minecraft/ClientInstance.h>
 static std::shared_ptr<Social::User> (ClientInstance::*_ClientInstance_getUser)();
 std::shared_ptr<Social::User> ClientInstance::getUser() {
     return (this->*_ClientInstance_getUser)();
@@ -110,13 +110,13 @@ void ClientInstance::_syncDestroyGame() {
     (this->*_ClientInstance__syncDestroyGame)();
 }
 
-#include "CommandOutput.h"
+#include <minecraft/CommandOutput.h>
 static std::vector<CommandOutputMessage> const & (CommandOutput::*_CommandOutput_getMessages)() const;
 std::vector<CommandOutputMessage> const & CommandOutput::getMessages() const {
     return (this->*_CommandOutput_getMessages)();
 }
 
-#include "CommandOutputSender.h"
+#include <minecraft/CommandOutputSender.h>
 static std::vector<mcpe::string> (*_CommandOutputSender_translate)(std::vector<mcpe::string> const &);
 std::vector<mcpe::string> CommandOutputSender::translate(std::vector<mcpe::string> const & p1) {
     return _CommandOutputSender_translate(p1);
@@ -138,24 +138,24 @@ void CommandOutputSender::registerOutputCallback() {
     (this->*_CommandOutputSender_registerOutputCallback)();
 }
 
-#include "Common.h"
+#include <minecraft/Common.h>
 static mcpe::string (*_Common_getGameVersionStringNet)();
 mcpe::string Common::getGameVersionStringNet() {
     return _Common_getGameVersionStringNet();
 }
 
-#include "ContentIdentity.h"
+#include <minecraft/ContentIdentity.h>
 ContentIdentity * ContentIdentity::EMPTY;
 
-#include "Core.h"
+#include <minecraft/Core.h>
 
-#include "Crypto.h"
+#include <minecraft/Crypto.h>
 static mce::UUID (*_Crypto_Random_generateUUID)();
 mce::UUID Crypto::Random::generateUUID() {
     return _Crypto_Random_generateUUID();
 }
 
-#include "ExternalFileLevelStorageSource.h"
+#include <minecraft/ExternalFileLevelStorageSource.h>
 static void (ExternalFileLevelStorageSource::*_ExternalFileLevelStorageSource_ExternalFileLevelStorageSource)(Core::FilePathManager *, std::shared_ptr<SaveTransactionManager>);
 ExternalFileLevelStorageSource::ExternalFileLevelStorageSource(Core::FilePathManager * p1, std::shared_ptr<SaveTransactionManager> p2) {
     (this->*_ExternalFileLevelStorageSource_ExternalFileLevelStorageSource)(p1, p2);
@@ -165,7 +165,7 @@ std::unique_ptr<LevelStorage> ExternalFileLevelStorageSource::createLevelStorage
     return (this->*_ExternalFileLevelStorageSource_createLevelStorage)(p1, p2, p3, p4);
 }
 
-#include "FilePathManager.h"
+#include <minecraft/FilePathManager.h>
 static void (Core::FilePathManager::*_Core_FilePathManager_FilePathManager)(Legacy::Pre_1_13::Core::Path const &, bool);
 Core::FilePathManager::FilePathManager(Legacy::Pre_1_13::Core::Path const & p1, bool p2) {
     (this->*_Core_FilePathManager_FilePathManager)(p1, p2);
@@ -199,9 +199,9 @@ const mcpe::string & Core::FilePathManager::getSettingsPath() const {
     return (this->*_Core_FilePathManager_getSettingsPath)();
 }
 
-#include "FilePickerSettings.h"
+#include <minecraft/FilePickerSettings.h>
 
-#include "GameControllerManager.h"
+#include <minecraft/GameControllerManager.h>
 GameControllerManager * GameControllerManager::sGamePadManager;
 static void (GameControllerManager::*_GameControllerManager_setGameControllerConnected)(int, bool);
 void GameControllerManager::setGameControllerConnected(int p1, bool p2) {
@@ -224,7 +224,7 @@ void GameControllerManager::feedJoinGame(int p1, bool p2) {
     (this->*_GameControllerManager_feedJoinGame)(p1, p2);
 }
 
-#include "I18n.h"
+#include <minecraft/I18n.h>
 static void (ResourceLoadManager::*_ResourceLoadManager_ResourceLoadManager)();
 ResourceLoadManager::ResourceLoadManager() {
     (this->*_ResourceLoadManager_ResourceLoadManager)();
@@ -246,11 +246,11 @@ void I18n::loadLanguages(ResourcePackManager & p1, ResourceLoadManager & p2, mcp
     _I18n_loadLanguages(p1, p2, p3);
 }
 
-#include "IMinecraftApp.h"
+#include <minecraft/IMinecraftApp.h>
 
-#include "ImagePickingCallback.h"
+#include <minecraft/ImagePickingCallback.h>
 
-#include "Keyboard.h"
+#include <minecraft/Keyboard.h>
 int * Keyboard::_states;
 std::vector<Keyboard::InputEvent> * Keyboard::_inputs;
 int * Keyboard::_gameControllerId;
@@ -260,13 +260,13 @@ void Keyboard::feedText(mcpe::string const & p1, bool p2, unsigned char p3) {
     _Keyboard_feedText(p1, p2, p3);
 }
 
-#include "Level.h"
+#include <minecraft/Level.h>
 static unsigned int (*_Level_createRandomSeed)();
 unsigned int Level::createRandomSeed() {
     return _Level_createRandomSeed();
 }
 
-#include "LevelSettings.h"
+#include <minecraft/LevelSettings.h>
 static void (LevelSettings::*_LevelSettings_LevelSettings)();
 LevelSettings::LevelSettings() {
     (this->*_LevelSettings_LevelSettings)();
@@ -280,7 +280,7 @@ int LevelSettings::parseSeedString(mcpe::string const & p1, unsigned int p2) {
     return _LevelSettings_parseSeedString(p1, p2);
 }
 
-#include "Minecraft.h"
+#include <minecraft/Minecraft.h>
 static MinecraftCommands * (Minecraft::*_Minecraft_getCommands)();
 MinecraftCommands * Minecraft::getCommands() {
     return (this->*_Minecraft_getCommands)();
@@ -290,7 +290,7 @@ Level * Minecraft::getLevel() const {
     return (this->*_Minecraft_getLevel)();
 }
 
-#include "MinecraftCommands.h"
+#include <minecraft/MinecraftCommands.h>
 static void (MinecraftCommands::*_MinecraftCommands_setOutputSender)(std::unique_ptr<CommandOutputSender>);
 void MinecraftCommands::setOutputSender(std::unique_ptr<CommandOutputSender> p1) {
     (this->*_MinecraftCommands_setOutputSender)(std::move(p1));
@@ -300,7 +300,7 @@ MCRESULT MinecraftCommands::requestCommandExecution(std::unique_ptr<CommandOrigi
     return (this->*_MinecraftCommands_requestCommandExecution)(std::move(p1), p2, p3, p4);
 }
 
-#include "MinecraftEventing.h"
+#include <minecraft/MinecraftEventing.h>
 static void (MinecraftEventing::*_MinecraftEventing_MinecraftEventing)(mcpe::string const &);
 MinecraftEventing::MinecraftEventing(mcpe::string const & p1) {
     (this->*_MinecraftEventing_MinecraftEventing)(p1);
@@ -310,7 +310,7 @@ void MinecraftEventing::init() {
     (this->*_MinecraftEventing_init)();
 }
 
-#include "MinecraftGame.h"
+#include <minecraft/MinecraftGame.h>
 static void (MinecraftGame::*_MinecraftGame_MinecraftGame)(int, char * *);
 MinecraftGame::MinecraftGame(int p1, char * * p2) {
     (this->*_MinecraftGame_MinecraftGame)(p1, p2);
@@ -352,7 +352,7 @@ void MinecraftGame::setTextboxText(mcpe::string const & p1, int p2) {
     (this->*_MinecraftGame_setTextboxText)(p1, p2);
 }
 
-#include "MinecraftScreenModel.h"
+#include <minecraft/MinecraftScreenModel.h>
 static void (MinecraftScreenModel::*_MinecraftScreenModel_navigateToXblConsoleSignInScreen)(mcpe::string const &, mcpe::string const &);
 void MinecraftScreenModel::navigateToXblConsoleSignInScreen(mcpe::string const & p1, mcpe::string const & p2) {
     (this->*_MinecraftScreenModel_navigateToXblConsoleSignInScreen)(p1, p2);
@@ -366,28 +366,28 @@ void MinecraftScreenModel::leaveScreen() {
     (this->*_MinecraftScreenModel_leaveScreen)();
 }
 
-#include "Mouse.h"
+#include <minecraft/Mouse.h>
 static void (*_Mouse_feed)(char, char, short, short, short, short);
 void Mouse::feed(char p1, char p2, short p3, short p4, short p5, short p6) {
     _Mouse_feed(p1, p2, p3, p4, p5, p6);
 }
 
-#include "MultiplayerService.h"
+#include <minecraft/MultiplayerService.h>
 static void (Social::MultiplayerXBL::*_Social_MultiplayerXBL_MultiplayerXBL)();
 Social::MultiplayerXBL::MultiplayerXBL() {
     (this->*_Social_MultiplayerXBL_MultiplayerXBL)();
 }
 
-#include "Multitouch.h"
+#include <minecraft/Multitouch.h>
 static void (*_Multitouch_feed)(char, char, short, short, int);
 void Multitouch::feed(char p1, char p2, short p3, short p4, int p5) {
     _Multitouch_feed(p1, p2, p3, p4, p5);
 }
 
-#include "NullTextToSpeechClient.h"
+#include <minecraft/NullTextToSpeechClient.h>
 void * * NullTextToSpeechClient::myVtable;
 
-#include "Options.h"
+#include <minecraft/Options.h>
 static bool (Options::*_Options_getFullscreen)() const;
 bool Options::getFullscreen() const {
     return (this->*_Options_getFullscreen)();
@@ -397,19 +397,19 @@ void Options::setFullscreen(bool p1) {
     (this->*_Options_setFullscreen)(p1);
 }
 
-#include "PermissionsFile.h"
+#include <minecraft/PermissionsFile.h>
 static void (PermissionsFile::*_PermissionsFile_PermissionsFile)(mcpe::string const &);
 PermissionsFile::PermissionsFile(mcpe::string const & p1) {
     (this->*_PermissionsFile_PermissionsFile)(p1);
 }
 
-#include "Resource.h"
+#include <minecraft/Resource.h>
 static void (*_ResourceLoaders_registerLoader)(ResourceFileSystem, std::unique_ptr<ResourceLoader>);
 void ResourceLoaders::registerLoader(ResourceFileSystem p1, std::unique_ptr<ResourceLoader> p2) {
     _ResourceLoaders_registerLoader(p1, std::move(p2));
 }
 
-#include "ResourcePack.h"
+#include <minecraft/ResourcePack.h>
 static void (SkinPackKeyProvider::*_SkinPackKeyProvider_SkinPackKeyProvider)();
 SkinPackKeyProvider::SkinPackKeyProvider() {
     (this->*_SkinPackKeyProvider_SkinPackKeyProvider)();
@@ -451,7 +451,7 @@ void ResourcePackManager::onLanguageChanged() {
     (this->*_ResourcePackManager_onLanguageChanged)();
 }
 
-#include "ResourcePackStack.h"
+#include <minecraft/ResourcePackStack.h>
 static void (PackInstance::*_PackInstance_PackInstance)(ResourcePack *, int, bool, PackSettings *);
 PackInstance::PackInstance(ResourcePack * p1, int p2, bool p3, PackSettings * p4) {
     (this->*_PackInstance_PackInstance)(p1, p2, p3, p4);
@@ -462,13 +462,13 @@ void ResourcePackStack::add(PackInstance const & p1, ResourcePackRepository cons
     (this->*_ResourcePackStack_add)(p1, p2, p3);
 }
 
-#include "SaveTransactionManager.h"
+#include <minecraft/SaveTransactionManager.h>
 static void (SaveTransactionManager::*_SaveTransactionManager_SaveTransactionManager)(mcpe::function<void ( bool )>);
 SaveTransactionManager::SaveTransactionManager(mcpe::function<void ( bool )> p1) {
     (this->*_SaveTransactionManager_SaveTransactionManager)(p1);
 }
 
-#include "Scheduler.h"
+#include <minecraft/Scheduler.h>
 static void (Scheduler::*_Scheduler_processCoroutines)(std::chrono::duration<long long>);
 void Scheduler::processCoroutines(std::chrono::duration<long long> p1) {
     (this->*_Scheduler_processCoroutines)(p1);
@@ -478,13 +478,13 @@ Scheduler * MinecraftScheduler::client() {
     return _MinecraftScheduler_client();
 }
 
-#include "ServerCommandOrigin.h"
+#include <minecraft/ServerCommandOrigin.h>
 static void (ServerCommandOrigin::*_ServerCommandOrigin_ServerCommandOrigin)(mcpe::string const &, ServerLevel &, CommandPermissionLevel);
 ServerCommandOrigin::ServerCommandOrigin(mcpe::string const & p1, ServerLevel & p2, CommandPermissionLevel p3) {
     (this->*_ServerCommandOrigin_ServerCommandOrigin)(p1, p2, p3);
 }
 
-#include "ServerInstance.h"
+#include <minecraft/ServerInstance.h>
 static void (EducationOptions::*_EducationOptions_EducationOptions)(ResourcePackManager *);
 EducationOptions::EducationOptions(ResourcePackManager * p1) {
     (this->*_EducationOptions_EducationOptions)(p1);
@@ -514,13 +514,13 @@ void ServerInstance::queueForServerThread(mcpe::function<void ( )> p1) {
     (this->*_ServerInstance_queueForServerThread)(p1);
 }
 
-#include "SharedConstants.h"
+#include <minecraft/SharedConstants.h>
 int * SharedConstants::MajorVersion;
 int * SharedConstants::MinorVersion;
 int * SharedConstants::PatchVersion;
 int * SharedConstants::RevisionVersion;
 
-#include "Social.h"
+#include <minecraft/Social.h>
 static Social::XboxLiveUser * (Social::User::*_Social_User_getLiveUser)() const;
 Social::XboxLiveUser * Social::User::getLiveUser() const {
     return (this->*_Social_User_getLiveUser)();
@@ -530,7 +530,7 @@ void Social::XboxLiveUser::_handleUISignInNoError(xbox::services::system::sign_i
     (this->*_Social_XboxLiveUser__handleUISignInNoError)(p1, p2);
 }
 
-#include "Store.h"
+#include <minecraft/Store.h>
 static int vti_StoreListener_onStoreInitialized = -1;
 void StoreListener::onStoreInitialized(bool p1) {
     union { void* voidp; void (StoreListener::*funcp)(bool); } u;
@@ -546,7 +546,7 @@ void StoreListener::onQueryProductsSuccess(std::vector<ProductInfo> const & p1) 
     (this->*u.funcp)(p1);
 }
 
-#include "UUID.h"
+#include <minecraft/UUID.h>
 mce::UUID * mce::UUID::EMPTY;
 static mce::UUID (*_mce_UUID_fromString)(mcpe::string const &);
 mce::UUID mce::UUID::fromString(mcpe::string const & p1) {
@@ -557,13 +557,13 @@ mcpe::string mce::UUID::asString() const {
     return (this->*_mce_UUID_asString)();
 }
 
-#include "UserManager.h"
+#include <minecraft/UserManager.h>
 static std::unique_ptr<Social::UserManager> (*_Social_UserManager_CreateUserManager)();
 std::unique_ptr<Social::UserManager> Social::UserManager::CreateUserManager() {
     return _Social_UserManager_CreateUserManager();
 }
 
-#include "V8.h"
+#include <minecraft/V8.h>
 static bool (*_v8_V8_Initialize)();
 bool v8::V8::Initialize() {
     return _v8_V8_Initialize();
@@ -573,9 +573,9 @@ void v8::V8::InitializePlatform(v8::Platform * p1) {
     _v8_V8_InitializePlatform(p1);
 }
 
-#include "Whitelist.h"
+#include <minecraft/Whitelist.h>
 
-#include "Xbox.h"
+#include <minecraft/Xbox.h>
 static void * (*_xbox_services_xbox_services_error_code_category)();
 void * xbox::services::xbox_services_error_code_category() {
     return _xbox_services_xbox_services_error_code_category();
@@ -725,7 +725,7 @@ void xbox::services::system::xbox_live_services_settings::set_diagnostics_trace_
     (this->*_xbox_services_system_xbox_live_services_settings_set_diagnostics_trace_level)(p1);
 }
 
-#include "gl.h"
+#include <minecraft/gl.h>
 static mcpe::string (*_gl_getOpenGLVendor)();
 mcpe::string gl::getOpenGLVendor() {
     return _gl_getOpenGLVendor();
@@ -747,7 +747,7 @@ void mce::Platform::OGL::InitBindings() {
     _mce_Platform_OGL_InitBindings();
 }
 
-#include "legacy/App.h"
+#include <minecraft/legacy/App.h>
 static int vti_Legacy_Pre_1_8_App_quit = -1;
 void Legacy::Pre_1_8::App::quit() {
     union { void* voidp; void (Legacy::Pre_1_8::App::*funcp)(); } u;
@@ -763,7 +763,7 @@ void Legacy::Pre_0_15::App::setSize(int p1, int p2, float p3) {
     (this->*u.funcp)(p1, p2, p3);
 }
 
-#include "legacy/AppPlatform.h"
+#include <minecraft/legacy/AppPlatform.h>
 static void (Legacy::Pre_1_2_13::AppPlatform::*_Legacy_Pre_1_2_13_AppPlatform_showKeyboard)(mcpe::string const &, int, bool, bool, bool, int, Vec2 const &);
 void Legacy::Pre_1_2_13::AppPlatform::showKeyboard(mcpe::string const & p1, int p2, bool p3, bool p4, bool p5, int p6, Vec2 const & p7) {
     (this->*_Legacy_Pre_1_2_13_AppPlatform_showKeyboard)(p1, p2, p3, p4, p5, p6, p7);
@@ -773,20 +773,20 @@ void Legacy::Pre_1_2_10::AppPlatform::showKeyboard(mcpe::string const & p1, int 
     (this->*_Legacy_Pre_1_2_10_AppPlatform_showKeyboard)(p1, p2, p3, p4, p5, p6);
 }
 
-#include "legacy/Core.h"
+#include <minecraft/legacy/Core.h>
 
-#include "legacy/FilePickerSettings.h"
+#include <minecraft/legacy/FilePickerSettings.h>
 
-#include "legacy/ImageData.h"
+#include <minecraft/legacy/ImageData.h>
 
-#include "legacy/Keyboard.h"
+#include <minecraft/legacy/Keyboard.h>
 std::vector<Legacy::Pre_1_2::Keyboard::InputEvent> * Legacy::Pre_1_2::Keyboard::_inputs;
 static void (*_Legacy_Pre_0_17_Keyboard_feedText)(mcpe::string const &, bool);
 void Legacy::Pre_0_17::Keyboard::feedText(mcpe::string const & p1, bool p2) {
     _Legacy_Pre_0_17_Keyboard_feedText(p1, p2);
 }
 
-#include "legacy/MinecraftGame.h"
+#include <minecraft/legacy/MinecraftGame.h>
 static void (Legacy::Pre_1_13::MinecraftGame::*_Legacy_Pre_1_13_MinecraftGame_destructor)();
 Legacy::Pre_1_13::MinecraftGame::~MinecraftGame() {
     (this->*_Legacy_Pre_1_13_MinecraftGame_destructor)();
@@ -816,10 +816,10 @@ Options * Legacy::Pre_1_1::MinecraftClient::getOptions() {
     return (this->*_Legacy_Pre_1_1_MinecraftClient_getOptions)();
 }
 
-#include "legacy/SharedConstants.h"
+#include <minecraft/legacy/SharedConstants.h>
 int * Legacy::Pre_0_17::SharedConstants::BetaVersion;
 
-#include "legacy/Store.h"
+#include <minecraft/legacy/Store.h>
 static int vti_Legacy_Pre_1_2_StoreListener_onQueryProductsSuccess = -1;
 void Legacy::Pre_1_2::StoreListener::onQueryProductsSuccess(std::vector<ProductInfo> const & p1) {
     union { void* voidp; void (Legacy::Pre_1_2::StoreListener::*funcp)(std::vector<ProductInfo> const &); } u;
@@ -835,13 +835,13 @@ void Legacy::Pre_0_17::StoreListener::onQueryProductsSuccess(std::vector<Product
     (this->*u.funcp)(p1);
 }
 
-#include "legacy/UUID.h"
+#include <minecraft/legacy/UUID.h>
 static mcpe::string (Legacy::Pre_1_0_4::mce::UUID::*_Legacy_Pre_1_0_4_mce_UUID_toString)() const;
 mcpe::string Legacy::Pre_1_0_4::mce::UUID::toString() const {
     return (this->*_Legacy_Pre_1_0_4_mce_UUID_toString)();
 }
 
-#include "legacy/Xbox.h"
+#include <minecraft/legacy/Xbox.h>
 static int vti_Legacy_Pre_1_8_xbox_services_local_config_get_value_from_local_storage = -1;
 mcpe::string Legacy::Pre_1_8::xbox::services::local_config::get_value_from_local_storage(mcpe::string const & p1) {
     union { void* voidp; ::mcpe::string (Legacy::Pre_1_8::xbox::services::local_config::*funcp)(mcpe::string const &); } u;

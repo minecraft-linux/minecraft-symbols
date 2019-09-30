@@ -9,7 +9,7 @@ def hash(str):
     return ret
 
 def generate_version_data(output, gen_vtables):
-    sl_data_dir = "../src/minecraft/symbolless/"
+    sl_data_dir = "../symbolless/"
     if not os.path.exists(sl_data_dir):
         output("static VersionData version_data[] = {};")
         return

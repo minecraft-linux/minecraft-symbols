@@ -315,7 +315,7 @@ def generate_init_func():
             output("    if (" + symbol["name"] + " == nullptr) Log::error(\"MinecraftSymbols\", \"Unresolved symbol: %s\", \"" + symbol["symbol"] + "\");")
     output("}")
 
-out_file = open("../src/minecraft/symbols.cpp", "w")
+out_file = open("../src/symbols.cpp", "w")
 output("// This file was automatically generated using tools/process_headers.py")
 output("// Generated on " + datetime.datetime.utcnow().strftime("%a %b %d %Y %H:%M:%S UTC"))
 output("")
@@ -323,14 +323,14 @@ output("#include <hybris/dlfcn.h>")
 output("#include <log.h>")
 output("#include \"symbols_internal.h\"")
 output("")
-header_dir = "../src/minecraft/"
+header_dir = "../include/minecraft/"
 for file in sorted(os.listdir(header_dir)):
     file_path = os.path.join(header_dir, file)
     if not os.path.isfile(file_path) or not file.endswith(".h"):
         continue
-    if file == "symbols.h" or file == "symbols_internal.h":
+    if file == "symbols.h":
         continue
-    output("#include \"" + file + "\"")
+    output("#include <minecraft/" + file + ">")
     process_header(file_path)
     output("")
 legacy_header_dir = header_dir + "legacy/"
@@ -338,7 +338,7 @@ for file in sorted(os.listdir(legacy_header_dir)):
     file_path = os.path.join(legacy_header_dir, file)
     if not os.path.isfile(file_path) or not file.endswith(".h"):
         continue
-    output("#include \"legacy/" + file + "\"")
+    output("#include <minecraft/legacy/" + file + ">")
     process_header(file_path, True)
     output("")
 

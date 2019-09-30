@@ -1,7 +1,7 @@
 #pragma once
 
 #include <cstddef>
-#include "symbols.h"
+#include <minecraft/symbols.h>
 
 struct VersionData {
     struct Symbol {
