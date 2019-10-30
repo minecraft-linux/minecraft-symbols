@@ -20,7 +20,7 @@
     "_ZNK7Options13getFullscreenEv": "0x10D3570",
     "_ZN7Options13setFullscreenEb": "0x10D3520",
 
-    "_ZTV22NullTextToSpeechClient": "0x7185428",
+    "_ZTV22NullTextToSpeechClient": "0x71968A0",
 
     "_ZNK4pplx4taskIN4xbox8services16xbox_live_resultINS2_6system26token_and_signature_resultEEEE3getEv": "0x16AA690",
 
