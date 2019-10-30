@@ -43,6 +43,7 @@ class ServerInstanceEventCoordinator {
     std::vector<ServerInstanceEventListener *> listeners;
     std::vector<mcpe::function<EventResult (ServerInstanceEventListener *)>> handlers;
     std::thread::id threadId;
+    void * filler;
 };
 
 class ServerCommunicationInterface;
