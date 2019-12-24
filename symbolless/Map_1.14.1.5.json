@@ -1,0 +1,42 @@
+{
+  "version": [1, 14, 1, 5],
+
+  "signature": {
+    "binary_size": 122253888,
+    "version_code_addr": "0x263D0F1",
+    "version_code_value": 11401005
+  },
+
+  "symbols": {
+    "_ZN6Common23getGameVersionStringNetEv": "0x263B580",
+
+    "_ZN3App4initER10AppContext": "0x23262D0",
+
+    "_ZN13MinecraftGameC2EiPPc": "0xBD6750",
+    "_ZN13MinecraftGame24doPrimaryClientReadyWorkESt8functionIFvvEE": "0xC127D0",
+    "_ZN13MinecraftGame14setTextboxTextERKSsi": "0xC1DE50",
+    "_ZN13MinecraftGame21getPrimaryUserOptionsEv": "0xBE1410",
+
+    "_ZNK7Options13getFullscreenEv": "0x1122920",
+    "_ZN7Options13setFullscreenEb": "0x11228D0",
+
+    "_ZTV22NullTextToSpeechClient": "0x7359C34",
+
+    "_ZNK4pplx4taskIN4xbox8services16xbox_live_resultINS2_6system26token_and_signature_resultEEEE3getEv": "0x1724BF0",
+
+    "_ZN3mce8Platform3OGL12InitBindingsEv": "0x3C95750"
+  },
+  "vtables": {
+    "App": {
+      "_ZN3App4quitERKSsS1_": 2,
+      "_ZN3App6updateEv": 14,
+      "_ZN3App16setRenderingSizeEii": 15,
+      "_ZN3App17setUISizeAndScaleEiif": 4,
+      "_ZN3App10wantToQuitEv": 3
+    },
+    "GameStore": {
+      "_ZN9GameStore18onStoreInitializedEb": 2,
+      "_ZN9GameStore22onQueryProductsSuccessERKSt6vectorI11ProductInfoSaIS1_EE": 3
+    }
+  }
+}
