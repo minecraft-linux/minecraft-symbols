@@ -1,5 +1,5 @@
 // This file was automatically generated using tools/process_headers.py
-// Generated on Wed Oct 30 2019 22:01:23 UTC
+// Generated on Tue Dec 24 2019 21:01:59 UTC
 
 #include <hybris/dlfcn.h>
 #include <log.h>
@@ -950,6 +950,12 @@ static VersionData version_data[] = {
         1, 13, 0, 34,
         0x255D891, 11300034,
         9, (VersionData::SymbolBucket[]) {(VersionData::Symbol[]){{"_ZN7Options13setFullscreenEb", 0x10D3520},{nullptr,0}},(VersionData::Symbol[]){{"_ZN13MinecraftGameC2EiPPc", 0xBBCB20},{nullptr,0}},_empty_symbol_bucket,(VersionData::Symbol[]){{"_ZN13MinecraftGame14setTextboxTextERKSsi", 0xBFE7E0},{"_ZN13MinecraftGame21getPrimaryUserOptionsEv", 0xBC7350},{"_ZN3mce8Platform3OGL12InitBindingsEv", 0x3B6DEE0},{nullptr,0}},(VersionData::Symbol[]){{"_ZN3App4initER10AppContext", 0x225F560},{"_ZN13MinecraftGame24doPrimaryClientReadyWorkESt8functionIFvvEE", 0xBF3580},{nullptr,0}},(VersionData::Symbol[]){{"_ZTV22NullTextToSpeechClient", 0x71968A0},{nullptr,0}},_empty_symbol_bucket,(VersionData::Symbol[]){{"_ZN6Common23getGameVersionStringNetEv", 0x255BD90},{nullptr,0}},(VersionData::Symbol[]){{"_ZNK7Options13getFullscreenEv", 0x10D3570},{"_ZNK4pplx4taskIN4xbox8services16xbox_live_resultINS2_6system26token_and_signature_resultEEEE3getEv", 0x16AA690},{nullptr,0}}},
+        (VersionData::VtableEntry[]) {{&vti_App_quit,2},{&vti_App_update,14},{&vti_App_setRenderingSize,15},{&vti_App_setUISizeAndScale,4},{&vti_App_wantToQuit,3},{&vti_StoreListener_onStoreInitialized,2},{&vti_StoreListener_onQueryProductsSuccess,3},{nullptr,0}}
+    },
+    {
+        1, 14, 1, 3,
+        0x263D5D1, 11401003,
+        9, (VersionData::SymbolBucket[]) {(VersionData::Symbol[]){{"_ZN7Options13setFullscreenEb", 0x1122880},{nullptr,0}},(VersionData::Symbol[]){{"_ZN13MinecraftGameC2EiPPc", 0xBD6700},{nullptr,0}},_empty_symbol_bucket,(VersionData::Symbol[]){{"_ZN13MinecraftGame14setTextboxTextERKSsi", 0xC1DE00},{"_ZN13MinecraftGame21getPrimaryUserOptionsEv", 0xBE13C0},{"_ZN3mce8Platform3OGL12InitBindingsEv", 0x3C95D90},{nullptr,0}},(VersionData::Symbol[]){{"_ZN3App4initER10AppContext", 0x2326410},{"_ZN13MinecraftGame24doPrimaryClientReadyWorkESt8functionIFvvEE", 0xC12780},{nullptr,0}},(VersionData::Symbol[]){{"_ZTV22NullTextToSpeechClient", 0x7359C34},{nullptr,0}},_empty_symbol_bucket,(VersionData::Symbol[]){{"_ZN6Common23getGameVersionStringNetEv", 0x263B6C0},{nullptr,0}},(VersionData::Symbol[]){{"_ZNK7Options13getFullscreenEv", 0x11228D0},{"_ZNK4pplx4taskIN4xbox8services16xbox_live_resultINS2_6system26token_and_signature_resultEEEE3getEv", 0x1724D60},{nullptr,0}}},
         (VersionData::VtableEntry[]) {{&vti_App_quit,2},{&vti_App_update,14},{&vti_App_setRenderingSize,15},{&vti_App_setUISizeAndScale,4},{&vti_App_wantToQuit,3},{&vti_StoreListener_onStoreInitialized,2},{&vti_StoreListener_onQueryProductsSuccess,3},{nullptr,0}}
     },
 };

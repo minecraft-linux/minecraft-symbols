@@ -6,11 +6,7 @@
 namespace Core {
 
 struct Path {
-
-    const char* path;
-    bool hasSize;
-    size_t size;
-
+    mcpe::string path;
 };
 
 struct PathBuffer {
